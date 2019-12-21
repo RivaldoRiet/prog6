@@ -129,6 +129,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccessoiresController.cs" />
+    <Compile Include="Controllers\BeestjesController.cs" />
+    <Compile Include="Controllers\BoekingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -220,6 +222,16 @@
     <Content Include="Views\Accessoires\Details.cshtml" />
     <Content Include="Views\Accessoires\Edit.cshtml" />
     <Content Include="Views\Accessoires\Index.cshtml" />
+    <Content Include="Views\Beestjes\Create.cshtml" />
+    <Content Include="Views\Beestjes\Delete.cshtml" />
+    <Content Include="Views\Beestjes\Details.cshtml" />
+    <Content Include="Views\Beestjes\Edit.cshtml" />
+    <Content Include="Views\Beestjes\Index.cshtml" />
+    <Content Include="Views\Boeking\Create.cshtml" />
+    <Content Include="Views\Boeking\Delete.cshtml" />
+    <Content Include="Views\Boeking\Details.cshtml" />
+    <Content Include="Views\Boeking\Edit.cshtml" />
+    <Content Include="Views\Boeking\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
