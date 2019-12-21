@@ -1,0 +1,13 @@
+21-12-2019 16:50:13	This log contains information about the import operation of the script 'script.sql' into project 'beestje_eindopdracht.Database' on computer 'RIVALDO' by user'RivaldoPc.
+21-12-2019 16:50:13	Started importing file: C:\Users\RivaldoPc\Downloads\script.sql 
+21-12-2019 16:50:13	File name C:\Users\RivaldoPc\Downloads\script.sql (size: 11744)
+21-12-2019 16:50:13	Parsing import script
+21-12-2019 16:50:13	Total number of batches in script: 58
+21-12-2019 16:50:13	Total number of statements in script: 6
+21-12-2019 16:50:13	The script was successfully imported into the project.
+21-12-2019 16:50:13	Analyzing schema objects...
+21-12-2019 16:50:13	Scanning project for duplicate elements
+21-12-2019 16:50:13	Finished duplicate element processing
+21-12-2019 16:50:14	In the script that you provided to the import operation, one or more statements were not fully understood. These statements were moved to the ScriptsIgnoredOnImport.sql file. Review the file contents for additional information.
+21-12-2019 16:50:14	A summary of the import was saved to the following location: C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Database\Import Script Logs\script_sql_20191221035013.log
+21-12-2019 16:50:14	Click Finish to continue...

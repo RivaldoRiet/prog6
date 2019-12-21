@@ -1,0 +1,92 @@
+21-12-2019 17:12:24	This log contains information about the import schema operation into project 'beestje_eindopdracht.Database' on computer 'RIVALDO' by user 'RivaldoPc'.
+21-12-2019 17:12:24	Import of database schema has started.
+21-12-2019 17:12:24	Gathering error messages
+21-12-2019 17:12:24	Gathering cryptographic providers
+21-12-2019 17:12:24	Gathering credentials
+21-12-2019 17:12:24	Gathering logins
+21-12-2019 17:12:24	Gathering server roles
+21-12-2019 17:12:24	Gathering server role memberships
+21-12-2019 17:12:24	Gathering linked servers
+21-12-2019 17:12:24	Gathering linked server logins
+21-12-2019 17:12:24	Gathering routes
+21-12-2019 17:12:24	Gathering ddl triggers
+21-12-2019 17:12:24	Gathering encrypted and clr ddl triggers
+21-12-2019 17:12:24	Gathering event notifications
+21-12-2019 17:12:24	Gathering server audits
+21-12-2019 17:12:24	Gathering server audit specifications
+21-12-2019 17:12:24	Gathering event notifications
+21-12-2019 17:12:24	Gathering database options
+21-12-2019 17:12:24	Gathering users
+21-12-2019 17:12:24	Gathering roles
+21-12-2019 17:12:24	Gathering application roles
+21-12-2019 17:12:24	Gathering role memberships
+21-12-2019 17:12:24	Gathering filegroups
+21-12-2019 17:12:24	Gathering files
+21-12-2019 17:12:24	Gathering full-text catalogs
+21-12-2019 17:12:24	Gathering assemblies
+21-12-2019 17:12:24	Gathering certificates
+21-12-2019 17:12:24	Gathering asymmetric keys
+21-12-2019 17:12:24	Gathering symmetric keys
+21-12-2019 17:12:24	Gathering encrypted symmetric keys
+21-12-2019 17:12:24	Gathering database encryption keys
+21-12-2019 17:12:24	Gathering schemas
+21-12-2019 17:12:24	Gathering XML schema collections
+21-12-2019 17:12:24	Gathering user-defined data types
+21-12-2019 17:12:24	Gathering user-defined types
+21-12-2019 17:12:24	Gathering table types
+21-12-2019 17:12:24	Gathering unique keys for table types
+21-12-2019 17:12:24	Gathering primary keys for table types
+21-12-2019 17:12:24	Gathering check constraints for table types
+21-12-2019 17:12:24	Gathering default constraints for table types
+21-12-2019 17:12:24	Gathering partition functions
+21-12-2019 17:12:24	Gathering partition schemes
+21-12-2019 17:12:24	Gathering functions
+21-12-2019 17:12:25	Gathering encrypted functions
+21-12-2019 17:12:25	Gathering aggregates
+21-12-2019 17:12:25	Gathering procedures
+21-12-2019 17:12:25	Gathering encrypted procedures
+21-12-2019 17:12:25	Gathering tables
+21-12-2019 17:12:25	Gathering primary keys
+21-12-2019 17:12:25	Gathering unique constraints
+21-12-2019 17:12:25	Gathering foreign keys
+21-12-2019 17:12:25	Gathering default constraints
+21-12-2019 17:12:25	Gathering check constraints
+21-12-2019 17:12:25	Gathering views
+21-12-2019 17:12:25	Gathering encrypted views
+21-12-2019 17:12:25	Gathering indexes
+21-12-2019 17:12:25	Gathering statistics
+21-12-2019 17:12:25	Gathering full-text index stoplists
+21-12-2019 17:12:25	Gathering search property lists
+21-12-2019 17:12:25	Gathering search properties
+21-12-2019 17:12:25	Gathering full-text indexes
+21-12-2019 17:12:25	Gathering column store indexes
+21-12-2019 17:12:25	Gathering spatial indexes
+21-12-2019 17:12:25	Gathering XML indexes
+21-12-2019 17:12:25	Gathering Selective XML indexes
+21-12-2019 17:12:25	Gathering encrypted triggers
+21-12-2019 17:12:25	Gathering triggers
+21-12-2019 17:12:25	Gathering encrypted and clr ddl triggers
+21-12-2019 17:12:25	Gathering ddl triggers
+21-12-2019 17:12:25	Gathering synonyms
+21-12-2019 17:12:25	Gathering defaults
+21-12-2019 17:12:25	Gathering data constraint uddt bindings
+21-12-2019 17:12:25	Gathering rules
+21-12-2019 17:12:25	Gathering data constraint uddt bindings
+21-12-2019 17:12:25	Gathering message types
+21-12-2019 17:12:25	Gathering queues
+21-12-2019 17:12:25	Gathering contracts
+21-12-2019 17:12:25	Gathering services
+21-12-2019 17:12:25	Gathering routes
+21-12-2019 17:12:25	Gathering event notifications
+21-12-2019 17:12:25	Gathering remote service bindings
+21-12-2019 17:12:25	Gathering broker priorities
+21-12-2019 17:12:25	Gathering database audit specifications
+21-12-2019 17:12:25	Gathering signatures
+21-12-2019 17:12:25	Gathering data compression options
+21-12-2019 17:12:25	Gathering sequence types
+21-12-2019 17:12:25	Gathering extended properties
+21-12-2019 17:12:25	Scanning project for duplicate elements
+21-12-2019 17:12:25	Finished duplicate element processing
+21-12-2019 17:12:26	Finished importing database.
+21-12-2019 17:12:26	A summary of the import was saved to the following location: C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Database\Import Schema Logs\beestje_eindopdracht_20191221041224.log
+21-12-2019 17:12:26	Click Finish to continue...
