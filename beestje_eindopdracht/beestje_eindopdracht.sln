@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "beestje_eindopdracht.Tests"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "beestje_eindopdracht.Database", "beestje_eindopdracht.Database\beestje_eindopdracht.Database.sqlproj", "{E68ACAD8-67CD-49F0-86E1-FD1AB60F8E37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "beestje_eindopdracht.Model", "beestje_eindopdracht.Model\beestje_eindopdracht.Model.csproj", "{8E778595-0A92-4DA1-8A09-DEE5AE28AE18}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,10 +29,6 @@ Global
 		{E68ACAD8-67CD-49F0-86E1-FD1AB60F8E37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E68ACAD8-67CD-49F0-86E1-FD1AB60F8E37}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E68ACAD8-67CD-49F0-86E1-FD1AB60F8E37}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{8E778595-0A92-4DA1-8A09-DEE5AE28AE18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8E778595-0A92-4DA1-8A09-DEE5AE28AE18}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8E778595-0A92-4DA1-8A09-DEE5AE28AE18}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8E778595-0A92-4DA1-8A09-DEE5AE28AE18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

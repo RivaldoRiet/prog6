@@ -51,6 +51,8 @@ C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\roslyn\VBCSCompiler.exe
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\Antlr3.Runtime.dll
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\EntityFramework.dll
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\EntityFramework.SqlServer.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\Newtonsoft.Json.dll
@@ -62,6 +64,8 @@ C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\System.Web.WebPages.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\System.Web.WebPages.Razor.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\WebGrease.dll
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\EntityFramework.xml
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\EntityFramework.SqlServer.xml
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\System.Web.Helpers.xml
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\System.Web.Mvc.xml
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\System.Web.Optimization.xml
@@ -72,7 +76,6 @@ C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\Newtonsoft.Json.xml
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\Antlr3.Runtime.pdb
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\obj\Debug\beestje_eindopdracht.csprojAssemblyReference.cache
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\obj\Debug\beestje_eindopdracht.csproj.CopyComplete
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\obj\Debug\beestje_eindopdracht.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\obj\Debug\beestje_eindopdracht.pdb
