@@ -1,53 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="beestje_databaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="beestje_databaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accessoires" EntityType="beestje_databaseModel.Accessoires" />
+    <EntitySet Name="Beestjes" EntityType="beestje_databaseModel.Beestjes" />
+    <EntitySet Name="BeestType" EntityType="beestje_databaseModel.BeestType" />
+    <EntitySet Name="Boeking" EntityType="beestje_databaseModel.Boeking" />
+    <AssociationSet Name="FK_Accessoires_Beestjes" Association="beestje_databaseModel.FK_Accessoires_Beestjes">
+      <End Role="Beestjes" EntitySet="Beestjes" />
+      <End Role="Accessoires" EntitySet="Accessoires" />
+    </AssociationSet>
+    <AssociationSet Name="Beestjes_ID" Association="beestje_databaseModel.Beestjes_ID">
+      <End Role="BeestType" EntitySet="BeestType" />
+      <End Role="Beestjes" EntitySet="Beestjes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Beestjes_Boeking" Association="beestje_databaseModel.FK_Beestjes_Boeking">
+      <End Role="Boeking" EntitySet="Boeking" />
+      <End Role="Beestjes" EntitySet="Beestjes" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="Accessoires">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Naam" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Prijs" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-    <Property Name="Afbeelding" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naam" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prijs" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Afbeelding" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Beestje_id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Beestjes" Relationship="Self.FK_Accessoires_Beestjes" FromRole="Accessoires" ToRole="Beestjes" />
+    <NavigationProperty Name="Beestjes" Relationship="beestje_databaseModel.FK_Accessoires_Beestjes" FromRole="Accessoires" ToRole="Beestjes" />
   </EntityType>
   <EntityType Name="Beestjes">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Boeking_id" Type="Int32" />
     <Property Name="BeestType_id" Type="Int32" Nullable="false" />
-    <Property Name="Naam" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Prijs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Afbeelding" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Accessoires" Relationship="Self.FK_Accessoires_Beestjes" FromRole="Beestjes" ToRole="Accessoires" />
-    <NavigationProperty Name="BeestType" Relationship="Self.Beestjes_ID" FromRole="Beestjes" ToRole="BeestType" />
-    <NavigationProperty Name="Boeking" Relationship="Self.FK_Beestjes_Boeking" FromRole="Beestjes" ToRole="Boeking" />
+    <Property Name="Naam" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prijs" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Afbeelding" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Accessoires" Relationship="beestje_databaseModel.FK_Accessoires_Beestjes" FromRole="Beestjes" ToRole="Accessoires" />
+    <NavigationProperty Name="BeestType" Relationship="beestje_databaseModel.Beestjes_ID" FromRole="Beestjes" ToRole="BeestType" />
+    <NavigationProperty Name="Boeking" Relationship="beestje_databaseModel.FK_Beestjes_Boeking" FromRole="Beestjes" ToRole="Boeking" />
   </EntityType>
   <EntityType Name="BeestType">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
-    <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Beestjes" Relationship="Self.Beestjes_ID" FromRole="BeestType" ToRole="Beestjes" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Beestjes" Relationship="beestje_databaseModel.Beestjes_ID" FromRole="BeestType" ToRole="Beestjes" />
   </EntityType>
   <EntityType Name="Boeking">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="datum" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="contact_naam" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="contact_adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="contact_email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="contact_telefoonnummer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Beestjes" Relationship="Self.FK_Beestjes_Boeking" FromRole="Boeking" ToRole="Beestjes" />
+    <Property Name="contact_naam" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="contact_adres" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="contact_email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="contact_telefoonnummer" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Beestjes" Relationship="beestje_databaseModel.FK_Beestjes_Boeking" FromRole="Boeking" ToRole="Beestjes" />
   </EntityType>
   <Association Name="FK_Accessoires_Beestjes">
-    <End Role="Beestjes" Type="Self.Beestjes" Multiplicity="1" />
-    <End Role="Accessoires" Type="Self.Accessoires" Multiplicity="*" />
+    <End Type="beestje_databaseModel.Beestjes" Role="Beestjes" Multiplicity="1" />
+    <End Type="beestje_databaseModel.Accessoires" Role="Accessoires" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Beestjes">
         <PropertyRef Name="Id" />
@@ -58,8 +76,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="Beestjes_ID">
-    <End Role="BeestType" Type="Self.BeestType" Multiplicity="1" />
-    <End Role="Beestjes" Type="Self.Beestjes" Multiplicity="*" />
+    <End Type="beestje_databaseModel.BeestType" Role="BeestType" Multiplicity="1" />
+    <End Type="beestje_databaseModel.Beestjes" Role="Beestjes" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="BeestType">
         <PropertyRef Name="id" />
@@ -70,8 +88,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Beestjes_Boeking">
-    <End Role="Boeking" Type="Self.Boeking" Multiplicity="0..1" />
-    <End Role="Beestjes" Type="Self.Beestjes" Multiplicity="*" />
+    <End Type="beestje_databaseModel.Boeking" Role="Boeking" Multiplicity="0..1" />
+    <End Type="beestje_databaseModel.Beestjes" Role="Beestjes" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Boeking">
         <PropertyRef Name="Id" />
@@ -81,22 +99,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="beestje_databaseEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Accessoires" EntityType="Self.Accessoires" />
-    <EntitySet Name="Beestjes" EntityType="Self.Beestjes" />
-    <EntitySet Name="BeestType" EntityType="Self.BeestType" />
-    <EntitySet Name="Boeking" EntityType="Self.Boeking" />
-    <AssociationSet Name="FK_Accessoires_Beestjes" Association="Self.FK_Accessoires_Beestjes">
-      <End Role="Beestjes" EntitySet="Beestjes" />
-      <End Role="Accessoires" EntitySet="Accessoires" />
-    </AssociationSet>
-    <AssociationSet Name="Beestjes_ID" Association="Self.Beestjes_ID">
-      <End Role="BeestType" EntitySet="BeestType" />
-      <End Role="Beestjes" EntitySet="Beestjes" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Beestjes_Boeking" Association="Self.FK_Beestjes_Boeking">
-      <End Role="Boeking" EntitySet="Boeking" />
-      <End Role="Beestjes" EntitySet="Beestjes" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>

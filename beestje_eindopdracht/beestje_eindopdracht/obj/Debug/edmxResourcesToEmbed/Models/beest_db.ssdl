@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Naam" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Prijs" Type="money" Nullable="false" />
     <Property Name="Afbeelding" Type="nvarchar(max)" Nullable="false" />
@@ -14,7 +14,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Boeking_id" Type="int" />
     <Property Name="BeestType_id" Type="int" Nullable="false" />
     <Property Name="Naam" Type="nvarchar(max)" Nullable="false" />
@@ -25,14 +25,14 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Boeking">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="datum" Type="date" Nullable="false" />
     <Property Name="contact_naam" Type="nvarchar(max)" Nullable="false" />
     <Property Name="contact_adres" Type="nvarchar(max)" Nullable="false" />
