@@ -169,6 +169,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
     <Content Include="Content\Images\Beestjes\aap.png" />
     <Content Include="Content\Images\Beestjes\bever.png" />
     <Content Include="Content\Images\Beestjes\doggo.png" />
@@ -186,6 +187,7 @@
     <Content Include="Content\Images\Beestjes\varken.png" />
     <Content Include="Content\Images\Beestjes\zebra.png" />
     <Content Include="Content\Images\Beestjes\zeehond.png" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
