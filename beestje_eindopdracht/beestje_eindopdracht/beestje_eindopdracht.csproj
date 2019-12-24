@@ -169,6 +169,23 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\Beestjes\aap.png" />
+    <Content Include="Content\Images\Beestjes\bever.png" />
+    <Content Include="Content\Images\Beestjes\doggo.png" />
+    <Content Include="Content\Images\Beestjes\donkey.png" />
+    <Content Include="Content\Images\Beestjes\duck.png" />
+    <Content Include="Content\Images\Beestjes\field.png" />
+    <Content Include="Content\Images\Beestjes\ijsbeer.png" />
+    <Content Include="Content\Images\Beestjes\kat.png" />
+    <Content Include="Content\Images\Beestjes\kip.png" />
+    <Content Include="Content\Images\Beestjes\koe.png" />
+    <Content Include="Content\Images\Beestjes\kuiken.png" />
+    <Content Include="Content\Images\Beestjes\leeuw.png" />
+    <Content Include="Content\Images\Beestjes\olifant.png" />
+    <Content Include="Content\Images\Beestjes\pingwing.png" />
+    <Content Include="Content\Images\Beestjes\varken.png" />
+    <Content Include="Content\Images\Beestjes\zebra.png" />
+    <Content Include="Content\Images\Beestjes\zeehond.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -235,6 +252,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\Accessoires\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

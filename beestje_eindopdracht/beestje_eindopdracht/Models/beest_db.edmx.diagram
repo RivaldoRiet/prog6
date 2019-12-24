@@ -5,13 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="b5e9962220e14ddbbba6a752303f9388" Name="Diagram1">
-        <EntityTypeShape EntityType="beestje_databaseModel.Accessoires" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="beestje_databaseModel.Beestjes" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="beestje_databaseModel.BeestType" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="beestje_databaseModel.Boeking" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
-        <AssociationConnector Association="beestje_databaseModel.FK_Accessoires_Beestjes" ManuallyRouted="false" />
-        <AssociationConnector Association="beestje_databaseModel.Beestjes_ID" ManuallyRouted="false" />
-        <AssociationConnector Association="beestje_databaseModel.FK_Beestjes_Boeking" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="beestje_databaseModel.Accessoires" Width="1.5" PointX="5.25" PointY="1.25" />
+        <EntityTypeShape EntityType="beestje_databaseModel.Beestjes" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="beestje_databaseModel.BeestType" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="beestje_databaseModel.Boeking" Width="1.5" PointX="0.75" PointY="1.125" />
+        <AssociationConnector Association="beestje_databaseModel.FK_Accessoires_Beestjes" />
+        <AssociationConnector Association="beestje_databaseModel.Beestjes_ID" />
+        <AssociationConnector Association="beestje_databaseModel.FK_Beestjes_Boeking" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
