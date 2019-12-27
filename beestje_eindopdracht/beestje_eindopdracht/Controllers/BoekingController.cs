@@ -7,13 +7,15 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using beestje_eindopdracht.Models;
+using beestje_eindopdracht.Repositories;
 
 namespace beestje_eindopdracht.Controllers
 {
     public class BoekingController : Controller
     {
         private beestje_databaseEntities db = new beestje_databaseEntities();
-
+        private BeestRepository beestRepository;
+        private System.DateTime date;
         // GET: Boeking
         public ActionResult Index()
         {
@@ -38,6 +40,21 @@ namespace beestje_eindopdracht.Controllers
         // GET: Boeking/Create
         public ActionResult Create()
         {
+            beestRepository = new BeestRepository(db);
+            var availableBeestjes = beestRepository.GetAvailableBeestjes();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult setDate(string date)
+        {
+            if (date.Equals(""))
+            {
+                return View();
+            }
+
+            this.date = DateTime.Parse(date);
+
             return View();
         }
 

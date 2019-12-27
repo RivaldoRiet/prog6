@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Boeking overzicht</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a type="button" href="/Boeking/Create" class="btn btn-primary"> Nieuwe boeking </a>
 </p>
 <table class="table">
     <tr>
@@ -30,29 +30,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.datum)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.contact_naam)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.contact_adres)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.contact_email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.contact_telefoonnummer)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.datum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contact_naam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contact_adres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contact_email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contact_telefoonnummer)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>
