@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using beestje_eindopdracht.Models;
 using beestje_eindopdracht.Repositories;
+using beestje_eindopdracht.ViewModels;
 
 namespace beestje_eindopdracht.Controllers
 {
@@ -42,7 +43,11 @@ namespace beestje_eindopdracht.Controllers
         {
             beestRepository = new BeestRepository(db);
             var availableBeestjes = beestRepository.GetAvailableBeestjes();
-            return View();
+            var allBeestjes = beestRepository.GetBeestjes();
+            var unavailableBeestjes = allBeestjes.Except(availableBeestjes);
+            BoekingViewModel boekingViewModel = new BoekingViewModel(unavailableBeestjes, availableBeestjes);
+            var tuple = new Tuple<Boeking, BoekingViewModel>(new Boeking(), boekingViewModel);
+            return View(tuple);
         }
 
         [HttpPost]
@@ -63,7 +68,7 @@ namespace beestje_eindopdracht.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,datum,contact_naam,contact_adres,contact_email,contact_telefoonnummer")] Boeking boeking)
+        public ActionResult Create([Bind(Prefix = "Item1", Include = "Id,datum,contact_naam,contact_adres,contact_email,contact_telefoonnummer")] Boeking boeking)
         {
             if (ModelState.IsValid)
             {

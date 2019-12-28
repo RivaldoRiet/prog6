@@ -1,12 +1,43 @@
-﻿@model beestje_eindopdracht.Models.Boeking
+﻿@model Tuple<beestje_eindopdracht.Models.Boeking, beestje_eindopdracht.ViewModels.BoekingViewModel>
 
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
 
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="widget">
+    <fieldset>
+        <legend>Selecteer beestjes: </legend>
+        @foreach (var beestje in Model.Item2.AvailableBeestjes)
+        {
+    <label for="checkbox-nested-@beestje.Id">
+        @beestje.Naam
+        <input type="checkbox" name="checkbox-nested-@beestje.Id" id="checkbox-nested-@beestje.Id">
+    </label>
+        }
+    </fieldset>
+</div>
+
+<h4>Beestjes</h4>
+
+@foreach (var beestje in Model.Item2.AvailableBeestjes)
+{
+    <div class="col-lg-4 p-2">
+        <h5>@beestje.Naam</h5>
+    </div>
+
+}
+
+<br />
+<br />
 
 @using (Html.BeginForm())
 {
@@ -17,44 +48,45 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.datum, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Item1.datum, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.datum, new { htmlAttributes = new { @class = "datepicker" } })
-                @Html.ValidationMessageFor(model => model.datum, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Item1.datum, new { htmlAttributes = new { @class = "datepicker" } })
+                @Html.ValidationMessageFor(model => model.Item1.datum, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.contact_naam, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Item1.contact_naam, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.contact_naam, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.contact_naam, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Item1.contact_naam, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Item1.contact_naam, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.contact_adres, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Item1.contact_adres, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.contact_adres, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.contact_adres, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Item1.contact_adres, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Item1.contact_adres, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.contact_email, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Item1.contact_email, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.contact_email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.contact_email, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Item1.contact_email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Item1.contact_email, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.contact_telefoonnummer, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Item1.contact_telefoonnummer, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.contact_telefoonnummer, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.contact_telefoonnummer, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Item1.contact_telefoonnummer, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Item1.contact_telefoonnummer, "", new { @class = "text-danger" })
             </div>
         </div>
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -72,8 +104,8 @@
     @Scripts.Render("~/bundles/jqueryval")
     <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-        <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
-        <script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script>
 
         $(function () {
             $(".datepicker").datepicker({
@@ -87,5 +119,15 @@
                 buttonText: "<i class='fa fa-calendar'></i>"
             });
         });
-        </script>
+    </script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("input").checkboxradio();
+        });
+    </script>
 }
