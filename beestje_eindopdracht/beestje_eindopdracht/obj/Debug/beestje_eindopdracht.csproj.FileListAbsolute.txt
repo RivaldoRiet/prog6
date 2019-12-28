@@ -56,6 +56,9 @@ C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\Newtonsoft.Json.dll
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\Ninject.dll
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\Ninject.Web.Common.dll
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\Ninject.Web.Common.WebHost.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\System.Web.Helpers.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\System.Web.Mvc.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\System.Web.Optimization.dll
@@ -63,9 +66,13 @@ C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\System.Web.WebPages.Deployment.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\System.Web.WebPages.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\System.Web.WebPages.Razor.dll
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\WebActivatorEx.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\WebGrease.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\EntityFramework.xml
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\EntityFramework.SqlServer.xml
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\Ninject.xml
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\Ninject.Web.Common.xml
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\Ninject.Web.Common.WebHost.xml
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\System.Web.Helpers.xml
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\System.Web.Mvc.xml
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\System.Web.Optimization.xml

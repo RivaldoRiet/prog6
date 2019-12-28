@@ -15,8 +15,12 @@ C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Tests\bin\Debug\System.Web.WebPages.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Tests\bin\Debug\WebActivatorEx.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Tests\bin\Debug\System.Web.Optimization.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Tests\bin\Debug\EntityFramework.dll
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Tests\bin\Debug\Ninject.Web.Common.dll
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Tests\bin\Debug\Ninject.dll
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Tests\bin\Debug\Ninject.Web.Common.WebHost.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Tests\bin\Debug\WebGrease.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Tests\bin\Debug\Antlr3.Runtime.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Tests\bin\Debug\beestje_eindopdracht.pdb
@@ -32,6 +36,9 @@ C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Tests\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Tests\bin\Debug\System.Web.Optimization.xml
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Tests\bin\Debug\EntityFramework.xml
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Tests\bin\Debug\Ninject.Web.Common.xml
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Tests\bin\Debug\Ninject.xml
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Tests\bin\Debug\Ninject.Web.Common.WebHost.xml
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Tests\bin\Debug\Antlr3.Runtime.pdb
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Tests\obj\Debug\beestje_eindopdracht.Tests.csprojAssemblyReference.cache
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Tests\obj\Debug\beestje_eindopdracht.Tests.csproj.CopyComplete
