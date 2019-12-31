@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "BoekingDatumSelect";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Datum Selecteren</h2>
+
+<h3 style="color:red;" id="errormess">De datum invoer is niet valide</h3>
+<p>Date: <input type="text" class="datepicker" id="datepicker"></p>
+
+    <p>
+        <a type="button" href="/Boeking/BeestjeSelect" onclick="postDate()" class="btn btn-primary"> Datum selecteren </a>
+    </p>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+        <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+        <script>
+
+            function postDate() {
+                var date = $(datepicker).val();
+                if (Date.parse(date)) {
+                    $.post("/Boeking/BoekingDatumSelect", { "JSONString": date });
+                } else {
+                    $("#errormess").show();
+                }
+                
+            }
+
+
+            $(function () {
+                $("#errormess").hide();
+                $(".datepicker").datepicker({
+                    dateFormat: "yy/mm/dd",
+                    changeMonth: true,
+                    changeYear: true,
+                    //yearRange : "-10:+10"
+                    minDate: new Date(2019, 0, 1),
+                    maxDate: new Date(2021, 0, 1),
+                    showOn: "both",
+                    buttonText: "<i class='fa fa-calendar'></i>"
+                });
+            });
+        </script>
+
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $(function () {
+                $("input").checkboxradio();
+            });
+        </script>
+    }

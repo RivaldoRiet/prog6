@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -8,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using beestje_eindopdracht.Models;
 using beestje_eindopdracht.Repositories;
+using beestje_eindopdracht.Singleton;
 using beestje_eindopdracht.ViewModels;
 
 namespace beestje_eindopdracht.Controllers
@@ -17,6 +19,12 @@ namespace beestje_eindopdracht.Controllers
         private beestje_databaseEntities db = new beestje_databaseEntities();
         private BeestRepository beestRepository;
         private System.DateTime date;
+
+        public BoekingController()
+        {
+            beestRepository = new BeestRepository(db);
+        }
+
         // GET: Boeking
         public ActionResult Index()
         {
@@ -38,29 +46,57 @@ namespace beestje_eindopdracht.Controllers
             return View(boeking);
         }
 
-        // GET: Boeking/Create
-        public ActionResult Create()
+        public ActionResult BoekingDatumSelect()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult BoekingDatumSelect(int? id)
+        {
+            string jsonData = Request.Form[0];
+            var date = DateTime.Parse(jsonData);
+            DataRepository.Instance.currDate = date;
+            return RedirectToAction("BeestjeSelect");
+        }
+
+        public ActionResult BeestjeSelect()
         {
             beestRepository = new BeestRepository(db);
             var availableBeestjes = beestRepository.GetAvailableBeestjes();
             var allBeestjes = beestRepository.GetBeestjes();
             var unavailableBeestjes = allBeestjes.Except(availableBeestjes);
             BoekingViewModel boekingViewModel = new BoekingViewModel(unavailableBeestjes, availableBeestjes);
-            var tuple = new Tuple<Boeking, BoekingViewModel>(new Boeking(), boekingViewModel);
-            return View(tuple);
+            return View(boekingViewModel);
         }
 
         [HttpPost]
-        public ActionResult setDate(string date)
+        public ActionResult BeestjeSelect(int? id)
         {
-            if (date.Equals(""))
+            string jsonData = Request.Form[0];
+            var intArr = jsonData.Split(',').ToList();
+            List<Beestjes> beestjes = new List<Beestjes>();
+            foreach (var item in intArr)
             {
-                return View();
+                int beestID = Int32.Parse(item);
+                beestjes.Add(beestRepository.getBeestById(beestID));
             }
+            DataRepository.Instance.beestjes = null;
+            DataRepository.Instance.beestjes = beestjes;
 
-            this.date = DateTime.Parse(date);
+            return RedirectToAction("BeestjeSelect");
+        }
 
-            return View();
+        // GET: Boeking/Create
+        public ActionResult Create()
+        {
+            var availableBeestjes = beestRepository.GetAvailableBeestjes();
+            var allBeestjes = beestRepository.GetBeestjes();
+            var unavailableBeestjes = allBeestjes.Except(availableBeestjes);
+            BoekingViewModel boekingViewModel = new BoekingViewModel(unavailableBeestjes, availableBeestjes);
+            boekingViewModel.SelectedBeestjes = DataRepository.Instance.beestjes;
+            var tuple = new Tuple<Boeking, BoekingViewModel>(new Boeking(), boekingViewModel);
+            return View(tuple);
         }
 
         // POST: Boeking/Create

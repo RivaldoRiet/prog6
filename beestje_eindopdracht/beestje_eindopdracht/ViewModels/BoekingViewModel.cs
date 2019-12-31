@@ -10,7 +10,7 @@ namespace beestje_eindopdracht.ViewModels
     {
         public IEnumerable<Beestjes> UnavailableBeestjes { get; set; }
         public IEnumerable<Beestjes> AvailableBeestjes { get; set; }
-        public string SelectedIds { get; set; }
+        public IEnumerable<Beestjes> SelectedBeestjes { get; set; }
 
         public BoekingViewModel() { }
 

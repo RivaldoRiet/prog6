@@ -6,29 +6,12 @@
 }
 
 
-
-
 <br />
 <br />
-<br />
-<br />
-<br />
-<div class="widget">
-    <fieldset>
-        <legend>Selecteer beestjes: </legend>
-        @foreach (var beestje in Model.Item2.AvailableBeestjes)
-        {
-    <label for="checkbox-nested-@beestje.Id">
-        @beestje.Naam
-        <input type="checkbox" name="checkbox-nested-@beestje.Id" id="checkbox-nested-@beestje.Id">
-    </label>
-        }
-    </fieldset>
-</div>
 
 <h4>Beestjes</h4>
 
-@foreach (var beestje in Model.Item2.AvailableBeestjes)
+@foreach (var beestje in Model.Item2.SelectedBeestjes)
 {
     <div class="col-lg-4 p-2">
         <h5>@beestje.Naam</h5>
