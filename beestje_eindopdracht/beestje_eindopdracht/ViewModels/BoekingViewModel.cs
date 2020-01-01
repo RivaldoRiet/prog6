@@ -15,10 +15,11 @@ namespace beestje_eindopdracht.ViewModels
         public BoekingViewModel() { }
 
         public BoekingViewModel(IEnumerable<Beestjes> unavailableBeestjes,
-                        IEnumerable<Beestjes> availableBeestjes)
+                        IEnumerable<Beestjes> availableBeestjes, IEnumerable<Beestjes> selectedBeestjes)
         {
             UnavailableBeestjes = unavailableBeestjes;
             AvailableBeestjes = availableBeestjes;
+            SelectedBeestjes = selectedBeestjes;
         }
     }
 }
