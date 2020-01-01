@@ -91,7 +91,7 @@ namespace beestje_eindopdracht.Controllers
         public ActionResult Create()
         {
             //geen datum of beestjes geselecteerd
-            if (DataRepository.Instance.currDate == null)
+           if (DataRepository.Instance.currDate == null)
             {
                 return RedirectToAction("BoekingDatumSelect");
 
