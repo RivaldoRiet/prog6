@@ -5,8 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>BeestjeSelect</h2>
-
+<h3 style="color:red" id="errormess">Selecteer minimaal 1 beestje</h3>
 
 <div class="widget">
     <fieldset>
@@ -39,12 +38,19 @@
 
         function postBeestjes() {
             var selected = [];
-            $('#checkboxes input:checked').each(function () {
-                selected.push($(this).attr('id').valueOf().split("checkbox-nested-")[1]);
-            });
-            $.post("/Boeking/BeestjeSelect", { "JSONString": selected });
-            wait(1000);
-            window.location.href = '../Boeking/Create';
+
+            if ($('#checkboxes input:checked').length == 0) {
+                $("#errormess").show();
+            } else {
+                $('#checkboxes input:checked').each(function () {
+                    selected.push($(this).attr('id').valueOf().split("checkbox-nested-")[1]);
+                });
+                $.post("/Boeking/BeestjeSelect", { "JSONString": selected });
+                wait(1000);
+                window.location.href = '../Boeking/Create';
+            }
+
+
         }
 
 
@@ -62,12 +68,12 @@
             });
         });
 
-        function wait(ms){
-           var start = new Date().getTime();
-           var end = start;
-           while(end < start + ms) {
-             end = new Date().getTime();
-          }
+        function wait(ms) {
+            var start = new Date().getTime();
+            var end = start;
+            while (end < start + ms) {
+                end = new Date().getTime();
+            }
         }
     </script>
 
