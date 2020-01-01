@@ -7,3 +7,9 @@ C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Database\obj\Debug\predeploy.sql
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Database\obj\Debug\beestje_eindopdracht.Database.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Database\obj\Debug\beestje_eindopdracht.Database.pdb
+C:\Users\Lucas\Documents\Prog 6 final project\prog6\beestje_eindopdracht\beestje_eindopdracht.Database\bin\Debug\beestje_eindopdracht.Database.dacpac
+C:\Users\Lucas\Documents\Prog 6 final project\prog6\beestje_eindopdracht\beestje_eindopdracht.Database\bin\Debug\beestje_eindopdracht.Database.dll
+C:\Users\Lucas\Documents\Prog 6 final project\prog6\beestje_eindopdracht\beestje_eindopdracht.Database\bin\Debug\beestje_eindopdracht.Database.pdb
+C:\Users\Lucas\Documents\Prog 6 final project\prog6\beestje_eindopdracht\beestje_eindopdracht.Database\obj\Debug\beestje_eindopdracht.Database.sqlprojAssemblyReference.cache
+C:\Users\Lucas\Documents\Prog 6 final project\prog6\beestje_eindopdracht\beestje_eindopdracht.Database\obj\Debug\beestje_eindopdracht.Database.dll
+C:\Users\Lucas\Documents\Prog 6 final project\prog6\beestje_eindopdracht\beestje_eindopdracht.Database\obj\Debug\beestje_eindopdracht.Database.pdb

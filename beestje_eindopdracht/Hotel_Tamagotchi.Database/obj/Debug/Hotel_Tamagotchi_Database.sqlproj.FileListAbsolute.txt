@@ -1,0 +1,14 @@
+c:\Users\RivaldoPC\Documents\Visual Studio 2015\Projects\Hotel Tamagotchi\Hotel_Tamagotchi_Database\bin\Debug\Hotel_Tamagotchi_Database.dacpac
+c:\Users\RivaldoPC\Documents\Visual Studio 2015\Projects\Hotel Tamagotchi\Hotel_Tamagotchi_Database\obj\Debug\Model.xml
+c:\Users\RivaldoPC\Documents\Visual Studio 2015\Projects\Hotel Tamagotchi\Hotel_Tamagotchi_Database\obj\Debug\refactor.xml
+c:\Users\RivaldoPC\Documents\Visual Studio 2015\Projects\Hotel Tamagotchi\Hotel_Tamagotchi_Database\obj\Debug\postdeploy.sql
+c:\Users\RivaldoPC\Documents\Visual Studio 2015\Projects\Hotel Tamagotchi\Hotel_Tamagotchi_Database\obj\Debug\predeploy.sql
+c:\Users\RivaldoPC\Documents\Visual Studio 2015\Projects\Hotel Tamagotchi\Hotel_Tamagotchi_Database\obj\Debug\Hotel_Tamagotchi_Database.dll
+c:\Users\RivaldoPC\Documents\Visual Studio 2015\Projects\Hotel Tamagotchi\Hotel_Tamagotchi_Database\obj\Debug\Hotel_Tamagotchi_Database.pdb
+D:\Desktop\Overig\Hotel Tamagotchi\Hotel_Tamagotchi_Database\bin\Debug\Hotel_Tamagotchi_Database.dacpac
+D:\Desktop\Overig\Hotel Tamagotchi\Hotel_Tamagotchi_Database\obj\Debug\Model.xml
+D:\Desktop\Overig\Hotel Tamagotchi\Hotel_Tamagotchi_Database\obj\Debug\refactor.xml
+D:\Desktop\Overig\Hotel Tamagotchi\Hotel_Tamagotchi_Database\obj\Debug\postdeploy.sql
+D:\Desktop\Overig\Hotel Tamagotchi\Hotel_Tamagotchi_Database\obj\Debug\predeploy.sql
+D:\Desktop\Overig\Hotel Tamagotchi\Hotel_Tamagotchi_Database\obj\Debug\Hotel_Tamagotchi_Database.dll
+D:\Desktop\Overig\Hotel Tamagotchi\Hotel_Tamagotchi_Database\obj\Debug\Hotel_Tamagotchi_Database.pdb

@@ -67,4 +67,7 @@
     <Build Include="dbo\Tables\Boeking_1.sql" />
     <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="beestje_eindopdracht.Database.publish.xml" />
+  </ItemGroup>
 </Project>

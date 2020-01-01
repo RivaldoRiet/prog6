@@ -1,0 +1,19 @@
+﻿BEGIN
+	INSERT INTO [dbo].[Tamagotchis] ( [Name], [Age], [ImageUrl], [Money], [Level], [Health], [Boredom], [Live]) VALUES (N'Dave', N'0', N'/Content/Images/Tamagotchis/animal0.png', N'100', N'0', N'100', N'0', N'True');
+	INSERT INTO [dbo].[Tamagotchis] ( [Name], [Age], [ImageUrl], [Money], [Level], [Health], [Boredom], [Live]) VALUES (N'Jake', N'0', N'/Content/Images/Tamagotchis/animal1.png', N'100', N'0', N'100', N'0', N'True');
+	INSERT INTO [dbo].[Tamagotchis] ( [Name], [Age], [ImageUrl], [Money], [Level], [Health], [Boredom], [Live]) VALUES (N'Travis', N'0', N'/Content/Images/Tamagotchis/animal2.png', N'100', N'0', N'100', N'0', N'True');
+	INSERT INTO [dbo].[Tamagotchis] ( [Name], [Age], [ImageUrl], [Money], [Level], [Health], [Boredom], [Live]) VALUES (N'Edgar', N'0', N'/Content/Images/Tamagotchis/animal3.png', N'100', N'0', N'100', N'0', N'True');
+	INSERT INTO [dbo].[Tamagotchis] ( [Name], [Age], [ImageUrl], [Money], [Level], [Health], [Boredom], [Live]) VALUES (N'Geoff', N'0', N'/Content/Images/Tamagotchis/animal4.png', N'100', N'0', N'100', N'0', N'True');
+	INSERT INTO [dbo].[Tamagotchis] ( [Name], [Age], [ImageUrl], [Money], [Level], [Health], [Boredom], [Live]) VALUES (N'Nathalie', N'0', N'/Content/Images/Tamagotchis/animal5.png', N'100', N'0', N'100', N'0', N'True');
+	INSERT INTO [dbo].[Tamagotchis] ( [Name], [Age], [ImageUrl], [Money], [Level], [Health], [Boredom], [Live]) VALUES (N'Micheal', N'0', N'/Content/Images/Tamagotchis/animal6.png', N'100', N'0', N'100', N'0', N'True');
+	INSERT INTO [dbo].[Tamagotchis] ( [Name], [Age], [ImageUrl], [Money], [Level], [Health], [Boredom], [Live]) VALUES (N'Vincent', N'0', N'/Content/Images/Tamagotchis/animal7.png', N'100', N'0', N'100', N'0', N'True');
+	INSERT INTO [dbo].[Tamagotchis] ( [Name], [Age], [ImageUrl], [Money], [Level], [Health], [Boredom], [Live]) VALUES (N'Elizabeth', N'0', N'/Content/Images/Tamagotchis/animal8.png', N'100', N'0', N'100', N'0', N'True');
+	INSERT INTO [dbo].[Tamagotchis] ( [Name], [Age], [ImageUrl], [Money], [Level], [Health], [Boredom], [Live]) VALUES (N'Adam', N'0', N'/Content/Images/Tamagotchis/animal9.png', N'100', N'0', N'100', N'0', N'True');
+	INSERT INTO [dbo].[Tamagotchis] ( [Name], [Age], [ImageUrl], [Money], [Level], [Health], [Boredom], [Live]) VALUES (N'Katherine', N'0', N'/Content/Images/Tamagotchis/animal11.png', N'100', N'0', N'100', N'0', N'True');
+	INSERT INTO [dbo].[Tamagotchis] ( [Name], [Age], [ImageUrl], [Money], [Level], [Health], [Boredom], [Live]) VALUES (N'Sophia', N'0', N'/Content/Images/Tamagotchis/animal12.png', N'100', N'0', N'100', N'0', N'True');
+	INSERT INTO [dbo].[Tamagotchis] ( [Name], [Age], [ImageUrl], [Money], [Level], [Health], [Boredom], [Live]) VALUES (N'Abigail', N'0', N'/Content/Images/Tamagotchis/animal13.png', N'100', N'0', N'100', N'0', N'True');
+	INSERT INTO [dbo].[Tamagotchis] ( [Name], [Age], [ImageUrl], [Money], [Level], [Health], [Boredom], [Live]) VALUES (N'Andrew', N'0', N'/Content/Images/Tamagotchis/animal15.png', N'100', N'0', N'100', N'0', N'True');
+	INSERT INTO [dbo].[Tamagotchis] ( [Name], [Age], [ImageUrl], [Money], [Level], [Health], [Boredom], [Live]) VALUES (N'Noah', N'0', N'/Content/Images/Tamagotchis/animal16.png', N'100', N'0', N'100', N'0', N'True');
+	INSERT INTO [dbo].[Tamagotchis] ( [Name], [Age], [ImageUrl], [Money], [Level], [Health], [Boredom], [Live]) VALUES (N'Gabriel', N'0', N'/Content/Images/Tamagotchis/animal20.png', N'100', N'0', N'100', N'0', N'True');
+	INSERT INTO [dbo].[Tamagotchis] ( [Name], [Age], [ImageUrl], [Money], [Level], [Health], [Boredom], [Live]) VALUES (N'Alfred', N'0', N'/Content/Images/Tamagotchis/animal22.png', N'100', N'0', N'100', N'0', N'True');
+END
