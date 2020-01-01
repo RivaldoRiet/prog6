@@ -6,3 +6,9 @@
 /beestje_eindopdracht/.vs/beestje_eindopdracht/v16/Server/sqlite3/db.lock
 /beestje_eindopdracht/beestje_eindopdracht.Database/beestje_eindopdracht.Database.dbmdl
 beestje_eindopdracht/.vs/beestje_eindopdracht/v16/Server/sqlite3/storage.ide-shm
+beestje_eindopdracht/beestje_eindopdracht/bin/beestje_eindopdracht.dll
+*.dll
+*.pdb
+*.dll
+*.pdb
+*.dll
