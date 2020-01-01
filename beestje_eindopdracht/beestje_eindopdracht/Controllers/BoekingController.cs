@@ -90,18 +90,6 @@ namespace beestje_eindopdracht.Controllers
         // GET: Boeking/Create
         public ActionResult Create()
         {
-            //geen datum of beestjes geselecteerd
-           if (DataRepository.Instance.currDate == null)
-            {
-                return RedirectToAction("BoekingDatumSelect");
-
-            }
-            if (DataRepository.Instance.beestjes == null)
-            {
-                return RedirectToAction("BeestjeSelect");
-            }
-
-
             var availableBeestjes = beestRepository.GetAvailableBeestjes();
             var allBeestjes = beestRepository.GetBeestjes();
             var unavailableBeestjes = allBeestjes.Except(availableBeestjes);
@@ -115,10 +103,11 @@ namespace beestje_eindopdracht.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Prefix = "Item1", Include = "Id,datum,contact_naam,contact_adres,contact_email,contact_telefoonnummer")] Boeking boeking)
+        public ActionResult Create([Bind(Prefix = "Item1", Include = "Id,contact_naam,contact_adres,contact_email,contact_telefoonnummer")] Boeking boeking)
         {
             if (ModelState.IsValid)
             {
+                boeking.datum = DataRepository.Instance.currDate;
                 db.Boeking.Add(boeking);
                 db.SaveChanges();
                 return RedirectToAction("Index");
