@@ -66,7 +66,7 @@ namespace beestje_eindopdracht.Controllers
             var availableBeestjes = beestRepository.GetAvailableBeestjes();
             var allBeestjes = beestRepository.GetBeestjes();
             var unavailableBeestjes = allBeestjes.Except(availableBeestjes);
-            BoekingViewModel boekingViewModel = new BoekingViewModel(unavailableBeestjes, availableBeestjes, DataRepository.Instance.beestjes);
+            BoekingViewModel boekingViewModel = new BoekingViewModel(unavailableBeestjes, availableBeestjes, DataRepository.Instance.beestjes, DataRepository.Instance.currDate);
             return View(boekingViewModel);
         }
 
@@ -93,7 +93,7 @@ namespace beestje_eindopdracht.Controllers
             var availableBeestjes = beestRepository.GetAvailableBeestjes();
             var allBeestjes = beestRepository.GetBeestjes();
             var unavailableBeestjes = allBeestjes.Except(availableBeestjes);
-            BoekingViewModel boekingViewModel = new BoekingViewModel(unavailableBeestjes, availableBeestjes, DataRepository.Instance.beestjes);
+            BoekingViewModel boekingViewModel = new BoekingViewModel(unavailableBeestjes, availableBeestjes, DataRepository.Instance.beestjes, DataRepository.Instance.currDate);
             var tuple = new Tuple<Boeking, BoekingViewModel>(new Boeking(), boekingViewModel);
             return View(tuple);
         }

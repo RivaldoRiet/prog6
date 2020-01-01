@@ -20,14 +20,15 @@
                     <input type="checkbox" name="checkbox-nested-@beestje.Id" id="checkbox-nested-@beestje.Id" class="@beestje.Id">
                 </label>
             }
-         </div>
+        </div>
     </fieldset>
 </div>
-
-<p>
-    <a type="button" href="/Boeking/Create" onclick="postBeestjes()" class="btn btn-primary"> Beestjes selecteren </a>
-</p>
-
+@using (Html.BeginForm())
+{
+    <p>
+        <button onclick="postBeestjes();return false;" id="saveButton" class="btn btn-primary"> Beestjes selecteren </button>
+    </p>
+}
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
@@ -42,6 +43,8 @@
                 selected.push($(this).attr('id').valueOf().split("checkbox-nested-")[1]);
             });
             $.post("/Boeking/BeestjeSelect", { "JSONString": selected });
+            wait(1000);
+            window.location.href = '../Boeking/Create';
         }
 
 
@@ -58,6 +61,14 @@
                 buttonText: "<i class='fa fa-calendar'></i>"
             });
         });
+
+        function wait(ms){
+           var start = new Date().getTime();
+           var end = start;
+           while(end < start + ms) {
+             end = new Date().getTime();
+          }
+        }
     </script>
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
