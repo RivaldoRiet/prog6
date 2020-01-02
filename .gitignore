@@ -24,3 +24,7 @@ beestje_eindopdracht/beestje_eindopdracht.Database/obj/Debug/beestje_eindopdrach
 *.sql
 beestje_eindopdracht/beestje_eindopdracht.Database/obj/Debug/beestje_eindopdracht.Database.sqlproj.FileListAbsolute.txt
 beestje_eindopdracht/.vs/beestje_eindopdracht/v16/.suo
+*.dll
+*.pdb
+*.dacpac
+beestje_eindopdracht/.vs/beestje_eindopdracht/v16/.suo
