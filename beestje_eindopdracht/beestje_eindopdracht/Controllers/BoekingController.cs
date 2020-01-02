@@ -109,11 +109,15 @@ namespace beestje_eindopdracht.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Prefix = "Item1", Include = "Id,contact_naam,contact_adres,contact_email,contact_telefoonnummer")] Boeking boeking)
         {
+            beestRepository = new BeestRepository(db);
             if (ModelState.IsValid)
             {
+
+                
                 foreach (var beest in DataRepository.Instance.beestjes)
                 {
-                    boeking.Beestjes.Add(beest);
+                    Beestjes b = beestRepository.getBeestById(beest.Id);
+                    boeking.Beestjes.Add(b);
                 }
 
                 boeking.datum = DataRepository.Instance.currDate;

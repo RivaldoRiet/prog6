@@ -20,8 +20,6 @@
     <Property Name="Prijs" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Afbeelding" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'beestje_database.dbo.Beestjes_Boeking' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Beestjes_Boeking">
     <Key>
       <PropertyRef Name="Boeking_ID" />
@@ -73,7 +71,9 @@ warning 6002: The table/view 'beestje_database.dbo.Beestjes_Boeking' does not ha
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Beestjes_Boeking_Beestjes">
-    <End Role="Beestjes" Type="Self.Beestjes" Multiplicity="1" />
+    <End Role="Beestjes" Type="Self.Beestjes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Beestjes_Boeking" Type="Self.Beestjes_Boeking" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Beestjes">
@@ -85,7 +85,9 @@ warning 6002: The table/view 'beestje_database.dbo.Beestjes_Boeking' does not ha
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Beestjes_Boeking_Boeking">
-    <End Role="Boeking" Type="Self.Boeking" Multiplicity="1" />
+    <End Role="Boeking" Type="Self.Boeking" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Beestjes_Boeking" Type="Self.Beestjes_Boeking" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Boeking">
@@ -99,14 +101,9 @@ warning 6002: The table/view 'beestje_database.dbo.Beestjes_Boeking' does not ha
   <EntityContainer Name="beestje_databaseModelStoreContainer">
     <EntitySet Name="Accessoires" EntityType="Self.Accessoires" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Beestjes" EntityType="Self.Beestjes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Beestjes_Boeking" EntityType="Self.Beestjes_Boeking" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BeestType" EntityType="Self.BeestType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Boeking" EntityType="Self.Boeking" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Beestjes_Boeking" EntityType="Self.Beestjes_Boeking" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Beestjes_Boeking].[Boeking_ID] AS [Boeking_ID], 
-    [Beestjes_Boeking].[Beest_ID] AS [Beest_ID]
-    FROM [dbo].[Beestjes_Boeking] AS [Beestjes_Boeking]</DefiningQuery>
-    </EntitySet>
     <AssociationSet Name="Beestjes_ID" Association="Self.Beestjes_ID">
       <End Role="BeestType" EntitySet="BeestType" />
       <End Role="Beestjes" EntitySet="Beestjes" />

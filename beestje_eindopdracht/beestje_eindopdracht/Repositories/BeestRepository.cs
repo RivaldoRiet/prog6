@@ -20,9 +20,10 @@ namespace beestje_eindopdracht.Repositories
             if (beestjeIsInDb != null)
             {
                 var result = new List<Beestjes>();
-                bool existsOnDate = false;
+                
                     foreach (var beestje in beestjeIsInDb)
                     {
+                    bool existsOnDate = false;
                     //als de current date niet bestaat dan kunnen we ook niet kijken welk beestje beschikbaar is
                     if (DataRepository.Instance.currDate != null) {
                         //var boeking = _context.Boeking.Where(t => t.Id == beestje.Id).FirstOrDefault();
