@@ -7,12 +7,19 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using beestje_eindopdracht.Models;
+using beestje_eindopdracht.Repositories;
 
 namespace beestje_eindopdracht.Controllers
 {
     public class BeestjesController : Controller
     {
         private beestje_databaseEntities db = new beestje_databaseEntities();
+        private BoekingRepository boekingRepository;
+
+        public BeestjesController()
+        {
+            boekingRepository = new BoekingRepository(db);
+        }
 
         // GET: Beestjes
         public ActionResult Index()
@@ -33,7 +40,11 @@ namespace beestje_eindopdracht.Controllers
             {
                 return HttpNotFound();
             }
-            return View(beestjes);
+
+            var boekingen = boekingRepository.GetBoekingenByBeestId(id);
+
+            var tuple = new Tuple<Beestjes, IEnumerable<Boeking>>(beestjes, boekingen);
+            return View(tuple);
         }
 
         // GET: Beestjes/Create

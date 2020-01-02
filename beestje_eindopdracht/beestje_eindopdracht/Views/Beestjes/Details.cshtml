@@ -1,51 +1,59 @@
-﻿@model beestje_eindopdracht.Models.Beestjes
+﻿@model Tuple<beestje_eindopdracht.Models.Beestjes, IEnumerable<beestje_eindopdracht.Models.Boeking>>
 
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h4>Boekingen</h4>
 
+@foreach (var boeking in Model.Item2)
+{
+    <div class="col-lg-4 p-2">
+        <h5>@boeking.contact_email - @boeking.datum</h5>
+    </div>
+}
+
+<h2>Details</h2>
 <div>
     <h4>Beestjes</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Naam)
+            @Html.DisplayNameFor(model => model.Item1.Naam)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Naam)
+            @Html.DisplayFor(model => model.Item1.Naam)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Prijs)
+            @Html.DisplayNameFor(model => model.Item1.Prijs)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Prijs)
+            @Html.DisplayFor(model => model.Item1.Prijs)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Afbeelding)
+            @Html.DisplayNameFor(model => model.Item1.Afbeelding)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Afbeelding)
+            @Html.DisplayFor(model => model.Item1.Afbeelding)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.BeestType.Type)
+            @Html.DisplayNameFor(model => model.Item1.BeestType.Type)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.BeestType.Type)
+            @Html.DisplayFor(model => model.Item1.BeestType.Type)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Item1.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

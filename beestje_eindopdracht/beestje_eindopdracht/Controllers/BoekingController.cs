@@ -18,7 +18,6 @@ namespace beestje_eindopdracht.Controllers
     {
         private beestje_databaseEntities db = new beestje_databaseEntities();
         private BeestRepository beestRepository;
-        private System.DateTime date;
 
         public BoekingController()
         {
@@ -62,7 +61,6 @@ namespace beestje_eindopdracht.Controllers
 
         public ActionResult BeestjeSelect()
         {
-            beestRepository = new BeestRepository(db);
             var availableBeestjes = beestRepository.GetAvailableBeestjes();
             var allBeestjes = beestRepository.GetBeestjes();
             var unavailableBeestjes = allBeestjes.Except(availableBeestjes);
@@ -109,7 +107,6 @@ namespace beestje_eindopdracht.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Prefix = "Item1", Include = "Id,contact_naam,contact_adres,contact_email,contact_telefoonnummer")] Boeking boeking)
         {
-            beestRepository = new BeestRepository(db);
             if (ModelState.IsValid)
             {
 

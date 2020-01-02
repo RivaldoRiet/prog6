@@ -14,6 +14,7 @@ namespace beestje_eindopdracht.Repositories
         {
             _context = context;
         }
+
         public IEnumerable<Beestjes> GetAvailableBeestjes()
         {
             var beestjeIsInDb = _context.Beestjes.OrderBy(t => t.Naam);
