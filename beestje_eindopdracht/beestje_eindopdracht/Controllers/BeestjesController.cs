@@ -17,7 +17,7 @@ namespace beestje_eindopdracht.Controllers
         // GET: Beestjes
         public ActionResult Index()
         {
-            var beestjes = db.Beestjes.Include(b => b.BeestType).Include(b => b.Boeking);
+            var beestjes = db.Beestjes.Include(b => b.BeestType);
             return View(beestjes.ToList());
         }
 
@@ -40,7 +40,6 @@ namespace beestje_eindopdracht.Controllers
         public ActionResult Create()
         {
             ViewBag.BeestType_id = new SelectList(db.BeestType, "id", "Type");
-            ViewBag.Boeking_id = new SelectList(db.Boeking, "Id", "contact_naam");
             return View();
         }
 
@@ -49,7 +48,7 @@ namespace beestje_eindopdracht.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Boeking_id,BeestType_id,Naam,Prijs,Afbeelding")] Beestjes beestjes)
+        public ActionResult Create([Bind(Include = "Id,BeestType_id,Naam,Prijs,Afbeelding")] Beestjes beestjes)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +58,6 @@ namespace beestje_eindopdracht.Controllers
             }
 
             ViewBag.BeestType_id = new SelectList(db.BeestType, "id", "Type", beestjes.BeestType_id);
-            ViewBag.Boeking_id = new SelectList(db.Boeking, "Id", "contact_naam", beestjes.Boeking_id);
             return View(beestjes);
         }
 
@@ -76,7 +74,6 @@ namespace beestje_eindopdracht.Controllers
                 return HttpNotFound();
             }
             ViewBag.BeestType_id = new SelectList(db.BeestType, "id", "Type", beestjes.BeestType_id);
-            ViewBag.Boeking_id = new SelectList(db.Boeking, "Id", "contact_naam", beestjes.Boeking_id);
             return View(beestjes);
         }
 
@@ -85,7 +82,7 @@ namespace beestje_eindopdracht.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Boeking_id,BeestType_id,Naam,Prijs,Afbeelding")] Beestjes beestjes)
+        public ActionResult Edit([Bind(Include = "Id,BeestType_id,Naam,Prijs,Afbeelding")] Beestjes beestjes)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +91,6 @@ namespace beestje_eindopdracht.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.BeestType_id = new SelectList(db.BeestType, "id", "Type", beestjes.BeestType_id);
-            ViewBag.Boeking_id = new SelectList(db.Boeking, "Id", "contact_naam", beestjes.Boeking_id);
             return View(beestjes);
         }
 

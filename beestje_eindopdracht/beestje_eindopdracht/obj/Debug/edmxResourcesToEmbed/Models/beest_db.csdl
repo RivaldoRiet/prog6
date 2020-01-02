@@ -13,9 +13,9 @@
       <End Role="BeestType" EntitySet="BeestType" />
       <End Role="Beestjes" EntitySet="Beestjes" />
     </AssociationSet>
-    <AssociationSet Name="FK_Beestjes_Boeking" Association="beestje_databaseModel.FK_Beestjes_Boeking">
-      <End Role="Boeking" EntitySet="Boeking" />
+    <AssociationSet Name="Beestjes_Boeking" Association="beestje_databaseModel.Beestjes_Boeking">
       <End Role="Beestjes" EntitySet="Beestjes" />
+      <End Role="Boeking" EntitySet="Boeking" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Accessoires">
@@ -34,14 +34,13 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Boeking_id" Type="Int32" />
     <Property Name="BeestType_id" Type="Int32" Nullable="false" />
     <Property Name="Naam" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Prijs" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Afbeelding" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Accessoires" Relationship="beestje_databaseModel.FK_Accessoires_Beestjes" FromRole="Beestjes" ToRole="Accessoires" />
     <NavigationProperty Name="BeestType" Relationship="beestje_databaseModel.Beestjes_ID" FromRole="Beestjes" ToRole="BeestType" />
-    <NavigationProperty Name="Boeking" Relationship="beestje_databaseModel.FK_Beestjes_Boeking" FromRole="Beestjes" ToRole="Boeking" />
+    <NavigationProperty Name="Boeking" Relationship="beestje_databaseModel.Beestjes_Boeking" FromRole="Beestjes" ToRole="Boeking" />
   </EntityType>
   <EntityType Name="BeestType">
     <Key>
@@ -61,7 +60,7 @@
     <Property Name="contact_adres" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="contact_email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="contact_telefoonnummer" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Beestjes" Relationship="beestje_databaseModel.FK_Beestjes_Boeking" FromRole="Boeking" ToRole="Beestjes" />
+    <NavigationProperty Name="Beestjes" Relationship="beestje_databaseModel.Beestjes_Boeking" FromRole="Boeking" ToRole="Beestjes" />
   </EntityType>
   <Association Name="FK_Accessoires_Beestjes">
     <End Type="beestje_databaseModel.Beestjes" Role="Beestjes" Multiplicity="1" />
@@ -87,16 +86,8 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Beestjes_Boeking">
-    <End Type="beestje_databaseModel.Boeking" Role="Boeking" Multiplicity="0..1" />
+  <Association Name="Beestjes_Boeking">
     <End Type="beestje_databaseModel.Beestjes" Role="Beestjes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Boeking">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Beestjes">
-        <PropertyRef Name="Boeking_id" />
-      </Dependent>
-    </ReferentialConstraint>
+    <End Type="beestje_databaseModel.Boeking" Role="Boeking" Multiplicity="*" />
   </Association>
 </Schema>

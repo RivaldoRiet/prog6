@@ -90,6 +90,10 @@ namespace beestje_eindopdracht.Controllers
         // GET: Boeking/Create
         public ActionResult Create()
         {
+            if (DataRepository.Instance.currDate == null || DataRepository.Instance.currDate != null && DataRepository.Instance.currDate.Year < 2020)
+            {
+                return RedirectToAction("BoekingDatumSelect");
+            }
             var availableBeestjes = beestRepository.GetAvailableBeestjes();
             var allBeestjes = beestRepository.GetBeestjes();
             var unavailableBeestjes = allBeestjes.Except(availableBeestjes);
@@ -107,6 +111,11 @@ namespace beestje_eindopdracht.Controllers
         {
             if (ModelState.IsValid)
             {
+                foreach (var beest in DataRepository.Instance.beestjes)
+                {
+                    boeking.Beestjes.Add(beest);
+                }
+
                 boeking.datum = DataRepository.Instance.currDate;
                 db.Boeking.Add(boeking);
                 db.SaveChanges();

@@ -1,3 +1,5 @@
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\roslyn\System.Reflection.Metadata.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\beestje_eindopdracht.dll.config
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\beestje_eindopdracht.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\beestje_eindopdracht.pdb
@@ -10,7 +12,6 @@ C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\roslyn\Microsoft.CodeAnalysis.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\roslyn\Microsoft.CSharp.Core.targets
@@ -32,7 +33,6 @@ C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\roslyn\System.IO.FileSystem.Primitives.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\roslyn\System.Net.Http.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\roslyn\System.Net.Sockets.dll
-C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\roslyn\System.Reflection.Metadata.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\roslyn\System.Security.Cryptography.Algorithms.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\bin\roslyn\System.Security.Cryptography.Encoding.dll
@@ -86,4 +86,3 @@ C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\obj\Debug\beestje_eindopdracht.csproj.CopyComplete
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\obj\Debug\beestje_eindopdracht.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\obj\Debug\beestje_eindopdracht.pdb
-C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\obj\Debug\beestje_eindopdracht.csprojAssemblyReference.cache

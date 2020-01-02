@@ -16,31 +16,25 @@ namespace beestje_eindopdracht.Repositories
         }
         public IEnumerable<Beestjes> GetAvailableBeestjes()
         {
-            var beestjeIsInDb = _context.Beestjes.Where(t => t.Boeking_id == null);
+            var beestjeIsInDb = _context.Beestjes.OrderBy(t => t.Naam);
             if (beestjeIsInDb != null)
             {
                 var result = new List<Beestjes>();
-                
+                bool existsOnDate = false;
                     foreach (var beestje in beestjeIsInDb)
                     {
                     //als de current date niet bestaat dan kunnen we ook niet kijken welk beestje beschikbaar is
                     if (DataRepository.Instance.currDate != null) {
-                        var boeking = _context.Boeking.Where(t => t.Id == beestje.Id).FirstOrDefault();
+                        //var boeking = _context.Boeking.Where(t => t.Id == beestje.Id).FirstOrDefault();
                         //neem de boeking waar het beestje bij hoort
-                        if (boeking != null) {
-                             if (DataRepository.Instance.currDate.CompareTo(boeking.datum) == 0) {
-                                 //de datum is hetzelfde als dat van het beestje
-                                 continue;
-                             }
-                             else
-                             {
-                                 //de datum is niet hetzelfde
-                                 result.Add(beestje);
-                             }
-                        }
-                        else
+                            foreach (Boeking boeking in beestje.Boeking) {
+                                if (DataRepository.Instance.currDate.CompareTo(boeking.datum) == 0) {
+                                //de datum is hetzelfde als dat van het beestje
+                                existsOnDate = true;
+                                }
+                            }
+                        if (!existsOnDate)
                         {
-                            //beestje heeft geen boeking
                             result.Add(beestje);
                         }
                     }
@@ -54,7 +48,7 @@ namespace beestje_eindopdracht.Repositories
 
         public IEnumerable<Beestjes> GetBeestByBoekingId(int boekingId)
         {
-            var beestjeIsInDb = _context.Beestjes.Where(t => t.Boeking_id == boekingId);
+            var beestjeIsInDb = _context.Beestjes.Where(t => t.Boeking.FirstOrDefault().Id == boekingId);
             if (beestjeIsInDb != null)
             {
                 var result = new List<Beestjes>();

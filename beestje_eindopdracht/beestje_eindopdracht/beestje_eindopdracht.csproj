@@ -306,13 +306,13 @@
     <Content Include="Views\Boeking\Details.cshtml" />
     <Content Include="Views\Boeking\Edit.cshtml" />
     <Content Include="Views\Boeking\Index.cshtml" />
+    <Content Include="Views\Boeking\BoekingDatumSelect.cshtml" />
+    <Content Include="Views\Boeking\BeestjeSelect.cshtml" />
     <Content Include="Views\Beestjes\Create.cshtml" />
     <Content Include="Views\Beestjes\Delete.cshtml" />
     <Content Include="Views\Beestjes\Details.cshtml" />
     <Content Include="Views\Beestjes\Edit.cshtml" />
     <Content Include="Views\Beestjes\Index.cshtml" />
-    <Content Include="Views\Boeking\BoekingDatumSelect.cshtml" />
-    <Content Include="Views\Boeking\BeestjeSelect.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

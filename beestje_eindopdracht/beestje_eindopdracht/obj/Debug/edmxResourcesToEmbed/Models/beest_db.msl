@@ -19,7 +19,6 @@
           <ScalarProperty Name="Prijs" ColumnName="Prijs" />
           <ScalarProperty Name="Naam" ColumnName="Naam" />
           <ScalarProperty Name="BeestType_id" ColumnName="BeestType_id" />
-          <ScalarProperty Name="Boeking_id" ColumnName="Boeking_id" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -44,5 +43,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="Beestjes_Boeking" TypeName="beestje_databaseModel.Beestjes_Boeking" StoreEntitySet="Beestjes_Boeking">
+      <EndProperty Name="Boeking">
+        <ScalarProperty Name="Id" ColumnName="Boeking_ID" />
+      </EndProperty>
+      <EndProperty Name="Beestjes">
+        <ScalarProperty Name="Id" ColumnName="Beest_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

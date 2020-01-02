@@ -18,10 +18,10 @@ namespace beestje_eindopdracht.Models
         public Beestjes()
         {
             this.Accessoires = new HashSet<Accessoires>();
+            this.Boeking = new HashSet<Boeking>();
         }
     
         public int Id { get; set; }
-        public Nullable<int> Boeking_id { get; set; }
         public int BeestType_id { get; set; }
         public string Naam { get; set; }
         public string Prijs { get; set; }
@@ -30,6 +30,7 @@ namespace beestje_eindopdracht.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Accessoires> Accessoires { get; set; }
         public virtual BeestType BeestType { get; set; }
-        public virtual Boeking Boeking { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Boeking> Boeking { get; set; }
     }
 }
