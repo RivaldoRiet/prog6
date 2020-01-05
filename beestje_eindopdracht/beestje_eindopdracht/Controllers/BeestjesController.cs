@@ -43,7 +43,7 @@ namespace beestje_eindopdracht.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View(new BeestjesViewModel() { BeestImages = _beestRepository.GetBeestImages() });
+            return View(new BeestjesViewModel() { BeestTypes = _beestRepository.GetBeestTypes().Select(r => r.Type).ToArray(), BeestImages = _beestRepository.GetBeestImages() });
         }
 
         [HttpPost]

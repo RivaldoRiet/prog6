@@ -15,7 +15,7 @@ namespace beestje_eindopdracht.Repositories
         IEnumerable<Beestjes> GetBeestjes();
 
         void Create(BeestjesViewModel beestViewModel);
-
+        BeestType[] GetBeestTypes();
         string[] GetBeestImages();
     }
 }

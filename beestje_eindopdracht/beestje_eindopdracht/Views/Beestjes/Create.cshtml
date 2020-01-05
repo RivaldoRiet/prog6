@@ -31,6 +31,28 @@
 
                 </div>
 
+                <h5 class="font-bold">Kamer Type</h5>
+                @Html.ValidationMessageFor(r => r.BeestType, "", new { @class = "text-danger" })
+                <div class="list-group">
+                    <input name="RoomType" id="selected-aoroom" type="hidden" value="@Model.BeestType" />
+
+                    @foreach (var roomType in Model.RoomTypes)
+                    {
+                        if (Model.BeestType != null)
+                        {
+                            if (Model.BeestType.Equals(roomType))
+                            {
+                                <a class="list-group-item list-group-item-warning active" data-toggle="list"
+                                   onclick='document.getElementById("selected-aoroom").value = "@Model.BeestType"'>@Model.BeestType</a>
+                                continue;
+                            }
+                        }
+                        <a class="list-group-item list-group-item-warning" data-toggle="list"
+                           onclick='document.getElementById("selected-aoroom").value = "@roomType"'>@roomType</a>
+                    }
+
+                </div>
+
                 <h5 class="font-bold" style="margin:25px 0;">Kamer foto</h5>
                 <div class="list-group image-selector">
                     <input name="SelectedImageUrl" id="selected-image" type="hidden" value="@Model.SelectedImageUrl" />

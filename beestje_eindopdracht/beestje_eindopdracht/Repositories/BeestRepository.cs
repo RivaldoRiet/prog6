@@ -11,11 +11,13 @@ namespace beestje_eindopdracht.Repositories
     public class BeestRepository : IBeestRepository
     {
         private beestje_databaseEntities _context;
+        private BeestType[] _beestTypes;
         private string[] _beestImages;
 
         public BeestRepository(beestje_databaseEntities context)
         {
             _context = context;
+            _beestTypes = InitializeBeestTypes();
             _beestImages = InitializeBeestImages();
         }
 
@@ -25,7 +27,8 @@ namespace beestje_eindopdracht.Repositories
         /// <param name="beestjesViewModel"></param>
         public void Create(BeestjesViewModel beestjesViewModel)
         {
-            _context.Beestjes.Add(beestjesViewModel.ToNewInstanceModel());
+            var beestType = _beestTypes.Where(r => r.Type.Equals(beestjesViewModel.BeestType)).FirstOrDefault();
+            _context.Beestjes.Add(beestjesViewModel.ToNewInstanceModel(beestType));
             _context.SaveChanges();
         }
 
@@ -107,9 +110,26 @@ namespace beestje_eindopdracht.Repositories
             return null;
         }
 
+        public BeestType[] GetBeestTypes()
+        {
+            return _beestTypes;
+        }
+
         public string[] GetBeestImages()
         {
             return _beestImages;
+        }
+
+        private BeestType[] InitializeBeestTypes()
+        {
+            BeestType[] result = new BeestType[4];
+
+            result[0] = new BeestType() { id = 1, Type = "Jungle" };
+            result[1] = new BeestType() { id = 2, Type = "Boerderij" };
+            result[2] = new BeestType() { id = 3, Type = "Sneeuw" };
+            result[3] = new BeestType() { id = 4, Type = "Woestijn" };
+
+            return result;
         }
 
         private string[] InitializeBeestImages()

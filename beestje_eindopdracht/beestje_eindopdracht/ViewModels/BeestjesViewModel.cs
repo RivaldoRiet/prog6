@@ -22,14 +22,14 @@ namespace beestje_eindopdracht.ViewModels
         public string Price { get; set; }
 
         [Required(ErrorMessage = "Beest type is required")]
-        public int BeestType_Id { get; set; }
+        public string BeestType { get; set; }
 
         [Required(ErrorMessage = "Beest image is required")]
         public string SelectedImageUrl { get; set; }
 
         // Only used for UI
         public int AmountOfBedTaken { get; set; }
-        public string[] RoomTypes { get; set; }
+        public string[] BeestTypes { get; set; }
         public string[] BeestImages { get; set; }
 
 
@@ -43,7 +43,7 @@ namespace beestje_eindopdracht.ViewModels
             Id = beest.Id;
             Name = beest.Naam;
             Price = beest.Prijs;
-            BeestType_Id = beest.BeestType_id;
+            BeestType = beest.BeestType.Type;
             SelectedImageUrl = beest.Afbeelding;
         }
 
@@ -51,7 +51,7 @@ namespace beestje_eindopdracht.ViewModels
         /// Will be used only in a repository class(during the creation of a room)
         /// </summary>
         /// <returns></returns>
-        public Beestjes ToNewInstanceModel()
+        public Beestjes ToNewInstanceModel(BeestType beestType)
         {
             if (Name == null || SelectedImageUrl == null)
             {
@@ -63,7 +63,7 @@ namespace beestje_eindopdracht.ViewModels
                 Naam = this.Name,
                 Prijs = this.Price,
                 Afbeelding = SelectedImageUrl,
-                BeestType_id = BeestType_Id
+                BeestType = beestType
             };
         }
 
