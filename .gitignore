@@ -1,7 +1,7 @@
 ﻿################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
-
-/.vs/prog6/v16/Server/sqlite3/db.lock
-/beestje_eindopdracht/.vs/beestje_eindopdracht/v16/Server/sqlite3/db.lock
+/beestje_eindopdracht/.vs/
+/.vs/
 /beestje_eindopdracht/beestje_eindopdracht.Database/beestje_eindopdracht.Database.dbmdl
+/beestje_eindopdracht/beestje_eindopdracht/obj/Debug/beestje_eindopdracht.csprojAssemblyReference.cache
