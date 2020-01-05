@@ -1,5 +1,6 @@
 ﻿using beestje_eindopdracht.Models;
 using beestje_eindopdracht.Singleton;
+using beestje_eindopdracht.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,24 @@ namespace beestje_eindopdracht.Repositories
     public class BeestRepository : IBeestRepository
     {
         private beestje_databaseEntities _context;
+        private string[] _beestImages;
+
         public BeestRepository(beestje_databaseEntities context)
         {
             _context = context;
+            _beestImages = InitializeBeestImages();
         }
+
+        /// <summary>
+        /// CRUD
+        /// </summary>
+        /// <param name="beestjesViewModel"></param>
+        public void Create(BeestjesViewModel beestjesViewModel)
+        {
+            _context.Beestjes.Add(beestjesViewModel.ToNewInstanceModel());
+            _context.SaveChanges();
+        }
+
         public IEnumerable<Beestjes> GetAvailableBeestjes()
         {
             var beestjeIsInDb = _context.Beestjes.OrderBy(t => t.Naam);
@@ -90,6 +105,23 @@ namespace beestje_eindopdracht.Repositories
                 
             }
             return null;
+        }
+
+        public string[] GetBeestImages()
+        {
+            return _beestImages;
+        }
+
+        private string[] InitializeBeestImages()
+        {
+            string[] result = new string[17];
+
+            for (int x = 0; x < result.Length; x++)
+            {
+                result[x] = "/Content/Images/Beestjes/beestje" + x + ".png";
+            }
+
+            return result;
         }
     }
 }

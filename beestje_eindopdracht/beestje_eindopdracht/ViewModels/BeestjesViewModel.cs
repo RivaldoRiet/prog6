@@ -32,7 +32,13 @@ namespace beestje_eindopdracht.ViewModels
         public string[] RoomTypes { get; set; }
         public string[] BeestImages { get; set; }
 
-        public BeestjesViewModel(Beestjes beest, int amountOfRoomTaken)
+
+        public BeestjesViewModel()
+        {
+
+        }
+
+        public BeestjesViewModel(Beestjes beest)
         {
             Id = beest.Id;
             Name = beest.Naam;

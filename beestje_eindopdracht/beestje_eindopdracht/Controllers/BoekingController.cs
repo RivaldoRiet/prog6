@@ -18,7 +18,6 @@ namespace beestje_eindopdracht.Controllers
     {
         private beestje_databaseEntities db = new beestje_databaseEntities();
         private BeestRepository beestRepository;
-        private System.DateTime date;
 
         public BoekingController()
         {

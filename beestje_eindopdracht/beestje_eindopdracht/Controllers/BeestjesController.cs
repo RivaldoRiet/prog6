@@ -7,12 +7,16 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using beestje_eindopdracht.Models;
+using beestje_eindopdracht.ViewModels;
+using beestje_eindopdracht.Repositories;
+
 
 namespace beestje_eindopdracht.Controllers
 {
     public class BeestjesController : Controller
     {
         private beestje_databaseEntities db = new beestje_databaseEntities();
+        private IBeestRepository _beestRepository;
 
         // GET: Beestjes
         public ActionResult Index()
@@ -36,29 +40,24 @@ namespace beestje_eindopdracht.Controllers
             return View(beestjes);
         }
 
-        // GET: Beestjes/Create
+        [HttpGet]
         public ActionResult Create()
         {
-            ViewBag.BeestType_id = new SelectList(db.BeestType, "id", "Type");
-            return View();
+            return View(new BeestjesViewModel() { BeestImages = _beestRepository.GetBeestImages() });
         }
 
-        // POST: Beestjes/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,BeestType_id,Naam,Prijs,Afbeelding")] Beestjes beestjes)
+        public ActionResult Create(BeestjesViewModel beestjesViewModel)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                db.Beestjes.Add(beestjes);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                beestjesViewModel.BeestImages = _beestRepository.GetBeestImages();
+                return View(beestjesViewModel);
             }
 
-            ViewBag.BeestType_id = new SelectList(db.BeestType, "id", "Type", beestjes.BeestType_id);
-            return View(beestjes);
+            _beestRepository.Create(beestjesViewModel);
+
+            return RedirectToAction("Index");
         }
 
         // GET: Beestjes/Edit/5
