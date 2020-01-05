@@ -34,7 +34,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.datum)
+                @item.datum.ToShortDateString()
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.contact_naam)

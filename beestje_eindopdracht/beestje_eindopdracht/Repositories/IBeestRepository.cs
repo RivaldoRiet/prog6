@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace beestje_eindopdracht.Repositories
 {
-    interface IBeestRepository
+    public interface IBeestRepository
     {
         IEnumerable<Beestjes> GetBeestByBoekingId(int boekingId);
         IEnumerable<Beestjes> GetAvailableBeestjes();
         IEnumerable<Beestjes> GetBeestjes();
+        Beestjes getBeestById(int id);
     }
 }

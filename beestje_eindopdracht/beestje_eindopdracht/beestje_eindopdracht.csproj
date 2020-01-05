@@ -61,6 +61,9 @@
     <Reference Include="Ninject.Web.Common.WebHost, Version=3.3.1.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.Web.Common.WebHost.3.3.1\lib\net45\Ninject.Web.Common.WebHost.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.3.0\lib\net45\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -307,7 +310,6 @@
     <Content Include="Views\Boeking\Create.cshtml" />
     <Content Include="Views\Boeking\Delete.cshtml" />
     <Content Include="Views\Boeking\Details.cshtml" />
-    <Content Include="Views\Boeking\Edit.cshtml" />
     <Content Include="Views\Boeking\Index.cshtml" />
     <Content Include="Views\Boeking\BoekingDatumSelect.cshtml" />
     <Content Include="Views\Boeking\BeestjeSelect.cshtml" />

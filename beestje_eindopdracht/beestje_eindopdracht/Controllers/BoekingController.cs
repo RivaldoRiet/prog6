@@ -16,18 +16,18 @@ namespace beestje_eindopdracht.Controllers
 {
     public class BoekingController : Controller
     {
-        private beestje_databaseEntities db = new beestje_databaseEntities();
-        private BeestRepository beestRepository;
-
-        public BoekingController()
+        private IBeestRepository beestRepository;
+        private IBoekingRepository boekingRepository;
+        public BoekingController(IBeestRepository beestRepository, IBoekingRepository boekingRepository)
         {
-            beestRepository = new BeestRepository(db);
+            this.beestRepository = beestRepository;
+            this.boekingRepository = boekingRepository;
         }
 
         // GET: Boeking
         public ActionResult Index()
         {
-            return View(db.Boeking.ToList());
+            return View(boekingRepository.GetBoekingen());
         }
 
         // GET: Boeking/Details/5
@@ -37,7 +37,8 @@ namespace beestje_eindopdracht.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Boeking boeking = db.Boeking.Find(id);
+
+            Boeking boeking = boekingRepository.getBoekingById(id);
             if (boeking == null)
             {
                 return HttpNotFound();
@@ -81,7 +82,6 @@ namespace beestje_eindopdracht.Controllers
             }
             DataRepository.Instance.beestjes = null;
             DataRepository.Instance.beestjes = beestjes;
-
             return RedirectToAction("Create");
         }
 
@@ -96,8 +96,8 @@ namespace beestje_eindopdracht.Controllers
             var allBeestjes = beestRepository.GetBeestjes();
             var unavailableBeestjes = allBeestjes.Except(availableBeestjes);
             BoekingViewModel boekingViewModel = new BoekingViewModel(unavailableBeestjes, availableBeestjes, DataRepository.Instance.beestjes, DataRepository.Instance.currDate);
-            var tuple = new Tuple<Boeking, BoekingViewModel>(new Boeking(), boekingViewModel);
-            return View(tuple);
+
+            return View(boekingViewModel);
         }
 
         // POST: Boeking/Create
@@ -105,56 +105,17 @@ namespace beestje_eindopdracht.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Prefix = "Item1", Include = "Id,contact_naam,contact_adres,contact_email,contact_telefoonnummer")] Boeking boeking)
+        public ActionResult Create(BoekingViewModel boekingViewModel)
         {
             if (ModelState.IsValid)
             {
-
-                
-                foreach (var beest in DataRepository.Instance.beestjes)
-                {
-                    Beestjes b = beestRepository.getBeestById(beest.Id);
-                    boeking.Beestjes.Add(b);
-                }
-
-                boeking.datum = DataRepository.Instance.currDate;
-                db.Boeking.Add(boeking);
-                db.SaveChanges();
+                boekingViewModel.SelectedBeestjes = DataRepository.Instance.beestjes.ToList();
+                boekingViewModel.dateTime = DataRepository.Instance.currDate;
+                boekingRepository.Create(boekingViewModel);
                 return RedirectToAction("Index");
             }
 
-            return View(boeking);
-        }
-
-        // GET: Boeking/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Boeking boeking = db.Boeking.Find(id);
-            if (boeking == null)
-            {
-                return HttpNotFound();
-            }
-            return View(boeking);
-        }
-
-        // POST: Boeking/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,datum,contact_naam,contact_adres,contact_email,contact_telefoonnummer")] Boeking boeking)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(boeking).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(boeking);
+            return View();
         }
 
         // GET: Boeking/Delete/5
@@ -164,7 +125,7 @@ namespace beestje_eindopdracht.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Boeking boeking = db.Boeking.Find(id);
+            Boeking boeking = boekingRepository.getBoekingById(id);
             if (boeking == null)
             {
                 return HttpNotFound();
@@ -177,19 +138,13 @@ namespace beestje_eindopdracht.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Boeking boeking = db.Boeking.Find(id);
-            db.Boeking.Remove(boeking);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
+            if (boekingRepository.Delete(id)) {
+                return RedirectToAction("Index");
             }
-            base.Dispose(disposing);
+            else
+            {
+                return Json("Failed to delete");
+            }
         }
     }
 }

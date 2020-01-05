@@ -12,6 +12,9 @@ namespace beestje_eindopdracht.Singleton
         public static DataRepository Instance => _instance;
         public DateTime currDate { get; set; }
         public IEnumerable<Beestjes> beestjes { get; set; }
+        public IEnumerable<Beestjes> UnavailableBeestjes { get; set; }
+        public IEnumerable<Beestjes> AvailableBeestjes { get; set; }
+        public IEnumerable<Beestjes> SelectedBeestjes { get; set; }
         static DataRepository()
         {
         }

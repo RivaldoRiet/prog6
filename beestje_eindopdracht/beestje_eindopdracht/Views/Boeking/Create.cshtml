@@ -1,4 +1,4 @@
-﻿@model Tuple<beestje_eindopdracht.Models.Boeking, beestje_eindopdracht.ViewModels.BoekingViewModel>
+﻿@model beestje_eindopdracht.ViewModels.BoekingViewModel
 
 @{
     ViewBag.Title = "Create";
@@ -11,7 +11,7 @@
 
 <h4>BoekingsDatum</h4>
 
-@Model.Item2.dateTime.Date.ToShortDateString()
+@Model.dateTime.Date.ToShortDateString()
 
 
 <br />
@@ -19,7 +19,7 @@
 
 <h4>Beestjes</h4>
 
-@foreach (var beestje in Model.Item2.SelectedBeestjes)
+@foreach (var beestje in Model.SelectedBeestjes)
 {
     <div class="col-lg-4 p-2">
         <h5>@beestje.Naam</h5>
@@ -40,34 +40,34 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Item1.contact_naam, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.contact_naam, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Item1.contact_naam, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Item1.contact_naam, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.contact_naam, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.contact_naam, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Item1.contact_adres, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.contact_adres, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Item1.contact_adres, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Item1.contact_adres, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.contact_adres, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.contact_adres, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Item1.contact_email, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.contact_email, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Item1.contact_email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Item1.contact_email, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.contact_email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.contact_email, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Item1.contact_telefoonnummer, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.contact_telefoonnummer, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Item1.contact_telefoonnummer, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Item1.contact_telefoonnummer, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.contact_telefoonnummer, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.contact_telefoonnummer, "", new { @class = "text-danger" })
             </div>
         </div>
 
