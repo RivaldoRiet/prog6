@@ -10,7 +10,7 @@ namespace beestje_eindopdracht.Repositories
 {
     public interface IBoekingRepository
     {
-        void Create(BoekingViewModel boekingViewModel);
+        void Create(BoekingViewModel boekingViewModel, IBeestRepository beestRepository);
         bool Delete(int id);
         IEnumerable<Boeking> GetBoekingenByBeestId(int? beestID);
         IEnumerable<Boeking> GetBoekingen();

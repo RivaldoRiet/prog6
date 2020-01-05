@@ -42,7 +42,10 @@ namespace beestje_eindopdracht.Controllers
             {
                 return HttpNotFound();
             }
-            return View(beestjes);
+            var boekingen = _boekingRepository.GetBoekingenByBeestId(id);
+
+            var tuple = new Tuple<Beestjes, IEnumerable<Boeking>>(beestjes, boekingen);
+            return View(tuple);
         }
 
         [HttpGet]

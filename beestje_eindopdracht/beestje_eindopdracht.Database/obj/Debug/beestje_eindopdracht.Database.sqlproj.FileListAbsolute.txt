@@ -1,0 +1,9 @@
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Database\bin\Debug\beestje_eindopdracht.Database.dacpac
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Database\bin\Debug\beestje_eindopdracht.Database.dll
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Database\bin\Debug\beestje_eindopdracht.Database.pdb
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Database\obj\Debug\Model.xml
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Database\obj\Debug\refactor.xml
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Database\obj\Debug\postdeploy.sql
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Database\obj\Debug\predeploy.sql
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Database\obj\Debug\beestje_eindopdracht.Database.dll
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht.Database\obj\Debug\beestje_eindopdracht.Database.pdb

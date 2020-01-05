@@ -48,8 +48,8 @@
           <Property Name="datum" Type="date" Nullable="false" />
           <Property Name="contact_naam" Type="nvarchar(max)" Nullable="false" />
           <Property Name="contact_adres" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="contact_email" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="contact_telefoonnummer" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="contact_email" Type="nvarchar(max)" />
+          <Property Name="contact_telefoonnummer" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="Beestjes_ID">
           <End Role="BeestType" Type="Self.BeestType" Multiplicity="1" />
@@ -188,8 +188,8 @@
           <Property Name="datum" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="contact_naam" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="contact_adres" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="contact_email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="contact_telefoonnummer" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="contact_email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="contact_telefoonnummer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Beestjes" Relationship="beestje_databaseModel.Beestjes_Boeking" FromRole="Boeking" ToRole="Beestjes" />
         </EntityType>
         <Association Name="FK_Accessoires_Beestjes">

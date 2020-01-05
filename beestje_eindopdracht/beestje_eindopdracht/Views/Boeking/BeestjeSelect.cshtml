@@ -5,28 +5,42 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@if (Model.AvailableBeestjes.Count() > 0)
+{
+    <div class="widget">
+        <fieldset>
+            <legend>Selecteer beestjes: </legend>
+            <div id="checkboxes">
 
-<div class="widget">
-    <fieldset>
-        <legend>Selecteer beestjes: </legend>
-        <div id="checkboxes">
-            @foreach (var beestje in Model.AvailableBeestjes)
-            {
+                @foreach (var beestje in Model.AvailableBeestjes)
+                {
                 <img src="@beestje.Afbeelding" />
                 <label for="checkbox-nested-@beestje.Id">
                     @beestje.Naam
                     <input type="checkbox" name="checkbox-nested-@beestje.Id" id="checkbox-nested-@beestje.Id" class="@beestje.Id">
                 </label>
-            }
-        </div>
-    </fieldset>
-</div>
-<h3 style="color:red" id="errormess">Selecteer minimaal 1 beestje</h3>
-@using (Html.BeginForm())
+                }
+
+            </div>
+        </fieldset>
+    </div>
+    }
+    else
+    {
+        <h4>geen dieren over om te boeken klik hier om terug te gaan</h4>
+        @Html.ActionLink("Terug naar index", "Index")
+    }
+
+
+@if (Model.AvailableBeestjes.Count() > 0)
 {
-    <p>
-        <button onclick="postBeestjes();return false;" id="saveButton" class="btn btn-primary"> Beestjes selecteren </button>
-    </p>
+    <h3 style="color:red" id="errormess">Selecteer minimaal 1 beestje</h3>
+    using (Html.BeginForm())
+    {
+        <p>
+            <button onclick="postBeestjes();return false;" id="saveButton" class="btn btn-primary"> Beestjes selecteren </button>
+        </p>
+    }
 }
 
 @section Scripts {
@@ -47,7 +61,7 @@
                 });
                 $.post("/Boeking/BeestjeSelect", { "JSONString": selected });
                 wait(1000);
-                window.location.href = '../Boeking/Create';
+                window.location.href = '../Boeking/AccessoiresSelect';
             }
 
 

@@ -18,10 +18,12 @@ namespace beestje_eindopdracht.Controllers
     {
         private IBeestRepository beestRepository;
         private IBoekingRepository boekingRepository;
-        public BoekingController(IBeestRepository beestRepository, IBoekingRepository boekingRepository)
+        private IAccessoiresRepository accessoiresRepository;
+        public BoekingController(IBeestRepository beestRepository, IBoekingRepository boekingRepository, IAccessoiresRepository accessoiresRepository)
         {
             this.beestRepository = beestRepository;
             this.boekingRepository = boekingRepository;
+            this.accessoiresRepository = accessoiresRepository;
         }
 
         // GET: Boeking
@@ -46,6 +48,40 @@ namespace beestje_eindopdracht.Controllers
             return View(boeking);
         }
 
+        public ActionResult AccessoiresSelect()
+        {
+            List<Accessoires> selectableAccesoires = new List<Accessoires>();
+            if (DataRepository.Instance.beestjes != null) {
+                foreach (var beest in DataRepository.Instance.beestjes)
+                {
+                    foreach (var a in accessoiresRepository.GetAccessoires(beest.Id))
+                    {
+                        selectableAccesoires.Add(a);
+                    }
+                }
+                return View(selectableAccesoires);
+            }
+
+            return View();
+            
+        }
+
+        [HttpPost]
+        public ActionResult AccessoiresSelect(int? id)
+        {
+            string jsonData = Request.Form[0];
+            var intArr = jsonData.Split(',').ToList();
+            List<Accessoires> accessoires = new List<Accessoires>();
+            foreach (var item in intArr)
+            {
+                int accessoiresID = Int32.Parse(item);
+                accessoires.Add(accessoiresRepository.GetAccessoiresById(accessoiresID));
+            }
+            DataRepository.Instance.accessoires = null;
+            DataRepository.Instance.accessoires = accessoires;
+            return RedirectToAction("Create");
+        }
+
         public ActionResult BoekingDatumSelect()
         {
             return View();
@@ -65,7 +101,7 @@ namespace beestje_eindopdracht.Controllers
             var availableBeestjes = beestRepository.GetAvailableBeestjes();
             var allBeestjes = beestRepository.GetBeestjes();
             var unavailableBeestjes = allBeestjes.Except(availableBeestjes);
-            BoekingViewModel boekingViewModel = new BoekingViewModel(unavailableBeestjes, availableBeestjes, DataRepository.Instance.beestjes, DataRepository.Instance.currDate);
+            BoekingViewModel boekingViewModel = new BoekingViewModel(unavailableBeestjes, availableBeestjes, DataRepository.Instance.beestjes, DataRepository.Instance.currDate, DataRepository.Instance.accessoires);
             return View(boekingViewModel);
         }
 
@@ -82,7 +118,7 @@ namespace beestje_eindopdracht.Controllers
             }
             DataRepository.Instance.beestjes = null;
             DataRepository.Instance.beestjes = beestjes;
-            return RedirectToAction("Create");
+            return RedirectToAction("AccessoiresSelect");
         }
 
         // GET: Boeking/Create
@@ -95,7 +131,7 @@ namespace beestje_eindopdracht.Controllers
             var availableBeestjes = beestRepository.GetAvailableBeestjes();
             var allBeestjes = beestRepository.GetBeestjes();
             var unavailableBeestjes = allBeestjes.Except(availableBeestjes);
-            BoekingViewModel boekingViewModel = new BoekingViewModel(unavailableBeestjes, availableBeestjes, DataRepository.Instance.beestjes, DataRepository.Instance.currDate);
+            BoekingViewModel boekingViewModel = new BoekingViewModel(unavailableBeestjes, availableBeestjes, DataRepository.Instance.beestjes, DataRepository.Instance.currDate, DataRepository.Instance.accessoires);
 
             return View(boekingViewModel);
         }
@@ -109,9 +145,9 @@ namespace beestje_eindopdracht.Controllers
         {
             if (ModelState.IsValid)
             {
-                boekingViewModel.SelectedBeestjes = DataRepository.Instance.beestjes.ToList();
+                boekingViewModel.beestjes = DataRepository.Instance.beestjes.ToList();
                 boekingViewModel.dateTime = DataRepository.Instance.currDate;
-                boekingRepository.Create(boekingViewModel);
+                boekingRepository.Create(boekingViewModel, beestRepository);
                 return RedirectToAction("Index");
             }
 

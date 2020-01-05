@@ -30,6 +30,19 @@
 <br />
 <br />
 
+<h4>Accessoires</h4>
+
+@foreach (var accessoires in Model.SelectedAccessoires)
+{
+    <div class="col-lg-4 p-2">
+        <h5>@accessoires.Naam</h5>
+    </div>
+
+}
+
+<br />
+<br />
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
