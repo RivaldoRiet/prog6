@@ -63,16 +63,10 @@ namespace beestje_eindopdracht.ViewModels
 
         public Boeking ToNewInstanceModel()
         {
-            var result = new List<Beestjes>();
-            foreach (var beestje in this.SelectedBeestjes)
-            {
-                result.Add(beestje);
-            }
-
             return new Boeking()
             {
                 Id = this.id,
-                Beestjes = result,
+                Beestjes = this.SelectedBeestjes.ToList(),
                 datum = this.dateTime,
                 contact_adres = this.contact_adres,
                 contact_email = this.contact_email,

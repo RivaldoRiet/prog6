@@ -1,4 +1,5 @@
 ﻿using beestje_eindopdracht.Models;
+using beestje_eindopdracht.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,8 @@ namespace beestje_eindopdracht.Repositories
         IEnumerable<Beestjes> GetAvailableBeestjes();
         IEnumerable<Beestjes> GetBeestjes();
         Beestjes getBeestById(int id);
+        void Create(BeestjesViewModel beestViewModel);
+        BeestType[] GetBeestTypes();
+        string[] GetBeestImages();
     }
 }
