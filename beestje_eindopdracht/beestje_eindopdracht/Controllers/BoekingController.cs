@@ -141,7 +141,7 @@ namespace beestje_eindopdracht.Controllers
             }
             DataRepository.Instance.beestjes = null;
             DataRepository.Instance.beestjes = beestjes;
-            return RedirectToAction("AccessoiresSelect");
+            return View();
         }
 
         // GET: Boeking/Create

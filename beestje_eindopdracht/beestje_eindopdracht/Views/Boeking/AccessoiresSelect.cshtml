@@ -5,12 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <div class="widget">
-        <fieldset>
-            <legend>Selecteer accessoires: </legend>
-            <div id="checkboxes">
-
-                @foreach (var accessoires in Model.ToList())
+<div class="widget">
+    <fieldset>
+        <legend>Selecteer accessoires: </legend>
+        <div id="checkboxes">
+            @if (Model != null)
+            {
+                foreach (var accessoires in Model.ToList())
                 {
                     <img src="@accessoires.Afbeelding" style="width:100px;height:100px;" />
                     <label for="checkbox-nested-@accessoires.Id">
@@ -18,17 +19,17 @@
                         <input type="checkbox" name="checkbox-nested-@accessoires.Id" id="checkbox-nested-@accessoires.Id" class="@accessoires.Id">
                     </label>
                 }
+            }
+        </div>
+    </fieldset>
+</div>
 
-            </div>
-        </fieldset>
-    </div>
-
-    @using (Html.BeginForm())
-    {
-        <p>
-            <button onclick="postAccessoires();return false;" id="saveButton" class="btn btn-primary"> Accessoires selecteren </button>
-        </p>
-    }
+@using (Html.BeginForm())
+{
+    <p>
+        <a type="button" href="/Boeking/Create" onclick="return postAccessoires();" class="btn btn-primary"> Accessoires selecteren </a>
+    </p>
+}
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
@@ -37,19 +38,20 @@
     <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
     <script>
 
-        function postAccessoires() {
+        postAccessoires = function () {
             var selected = [];
 
             if ($('#checkboxes input:checked').length == 0) {
                 $("#errormess").show();
+                return false;
             } else {
                 $('#checkboxes input:checked').each(function () {
                     selected.push($(this).attr('id').valueOf().split("checkbox-nested-")[1]);
                 });
                 $.post("/Boeking/AccessoiresSelect", { "JSONString": selected });
-                wait(1000);
-                window.location.href = '../Boeking/Create';
+                
             }
+            return true;
         }
 
         $(function () {

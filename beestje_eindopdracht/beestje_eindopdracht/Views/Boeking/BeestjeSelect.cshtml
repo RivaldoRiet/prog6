@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@if (Model.AvailableBeestjes.Count() > 0)
+@if (Model != null && Model.AvailableBeestjes.Count() > 0)
 {
     <div class="widget">
         <fieldset>
@@ -32,13 +32,13 @@
     }
 
 
-@if (Model.AvailableBeestjes.Count() > 0)
+@if (Model != null && Model.AvailableBeestjes.Count() > 0)
 {
     <h3 style="color:red" id="errormess">Selecteer minimaal 1 beestje</h3>
     using (Html.BeginForm())
     {
         <p>
-            <button onclick="postBeestjes();return false;" id="saveButton" class="btn btn-primary"> Beestjes selecteren </button>
+            <a type="button" href="/Boeking/AccessoiresSelect" onclick="return postBeestjes();" class="btn btn-primary"> Beestjes selecteren </a>
         </p>
     }
 }
@@ -50,21 +50,19 @@
     <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
     <script>
 
-        function postBeestjes() {
+        postBeestjes = function () {
             var selected = [];
 
             if ($('#checkboxes input:checked').length == 0) {
                 $("#errormess").show();
+                return false;
             } else {
                 $('#checkboxes input:checked').each(function () {
                     selected.push($(this).attr('id').valueOf().split("checkbox-nested-")[1]);
                 });
                 $.post("/Boeking/BeestjeSelect", { "JSONString": selected });
-                wait(1000);
-                window.location.href = '../Boeking/AccessoiresSelect';
             }
-
-
+            return true;
         }
 
 
