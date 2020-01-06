@@ -88,3 +88,4 @@ C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\obj\Debug\beestje_eindopdracht.csproj.CopyComplete
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\obj\Debug\beestje_eindopdracht.dll
 C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\obj\Debug\beestje_eindopdracht.pdb
+C:\Users\RivaldoPc\source\repos\prog6\beestje_eindopdracht\beestje_eindopdracht\obj\Debug\beestje_eindopdracht.csprojAssemblyReference.cache

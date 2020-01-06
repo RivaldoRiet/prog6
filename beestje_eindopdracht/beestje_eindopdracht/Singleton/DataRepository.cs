@@ -1,4 +1,5 @@
 ﻿using beestje_eindopdracht.Models;
+using beestje_eindopdracht.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace beestje_eindopdracht.Singleton
         public DateTime currDate { get; set; }
         public IEnumerable<Beestjes> beestjes { get; set; }
         public IEnumerable<Accessoires> accessoires { get; set; }
-
+        public BoekingViewModel boekingViewModel { get; set; }
         static DataRepository()
         {
         }

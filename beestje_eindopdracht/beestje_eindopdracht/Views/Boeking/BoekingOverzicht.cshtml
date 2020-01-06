@@ -1,0 +1,68 @@
+﻿@model beestje_eindopdracht.ViewModels.BoekingViewModel
+
+@{
+    ViewBag.Title = "BoekingOverzicht";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+
+<h4>BoekingsDatum</h4>
+
+@Model.dateTime.Date.ToShortDateString()
+
+
+<br />
+<br />
+<br />
+<br />
+<h4>Beestjes</h4>
+
+@foreach (var beestje in Model.SelectedBeestjes)
+{
+    <div class="col-lg-4 p-2">
+        <h5>@beestje.Naam</h5>
+    </div>
+
+}
+<br />
+<br />
+<br />
+<br />
+
+<h4>Accessoires</h4>
+
+@foreach (var accessoires in Model.SelectedAccessoires)
+{
+    <div class="col-lg-4 p-2">
+        <h5>@accessoires.Naam</h5>
+    </div>
+
+}
+
+
+<br />
+<br />
+<h4>Gegevens</h4>
+@Model.contact_email - @Model.contact_naam - @Model.contact_telefoonnummer - @Model.contact_adres
+
+<br />
+<br />
+
+<h4>Prijs</h4>
+@Model.SelectedAccessoires.Sum(x => x.Prijs);
+
+<br />
+<br />
+
+<h4>Korting</h4>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Boeking voltooien" class="btn btn-default" />
+        </div>
+    </div>
+}

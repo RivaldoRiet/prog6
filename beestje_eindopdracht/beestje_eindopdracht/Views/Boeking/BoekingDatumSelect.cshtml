@@ -22,7 +22,8 @@
 
             function postDate() {
                 var date = $(datepicker).val();
-                if (Date.parse(date)) {
+                var today = new Date((new Date()).toString().substring(0,15));
+                if (Date.parse(date) && date >= today) {
                     $.post("/Boeking/BoekingDatumSelect", { "JSONString": date });
                 } else {
                     $("#errormess").show();

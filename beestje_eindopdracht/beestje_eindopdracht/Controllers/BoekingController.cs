@@ -48,6 +48,29 @@ namespace beestje_eindopdracht.Controllers
             return View(boeking);
         }
 
+        public ActionResult BoekingOverzicht()
+        {
+            var availableBeestjes = beestRepository.GetAvailableBeestjes();
+            var allBeestjes = beestRepository.GetBeestjes();
+            var unavailableBeestjes = allBeestjes.Except(availableBeestjes);
+            BoekingViewModel boekingViewModel = new BoekingViewModel(unavailableBeestjes, availableBeestjes, DataRepository.Instance.beestjes, DataRepository.Instance.currDate, DataRepository.Instance.accessoires);
+            boekingViewModel.contact_email = DataRepository.Instance.boekingViewModel.contact_email;
+            boekingViewModel.contact_adres = DataRepository.Instance.boekingViewModel.contact_adres;
+            boekingViewModel.contact_naam = DataRepository.Instance.boekingViewModel.contact_naam;
+            boekingViewModel.contact_telefoonnummer = DataRepository.Instance.boekingViewModel.contact_telefoonnummer;
+
+            return View(boekingViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult BoekingOverzicht(int? id)
+        {
+            DataRepository.Instance.boekingViewModel.beestjes = DataRepository.Instance.beestjes.ToList();
+            DataRepository.Instance.boekingViewModel.dateTime = DataRepository.Instance.currDate;
+            boekingRepository.Create(DataRepository.Instance.boekingViewModel, beestRepository);
+            return RedirectToAction("Index");
+        }
+
         public ActionResult AccessoiresSelect()
         {
             List<Accessoires> selectableAccesoires = new List<Accessoires>();
@@ -145,10 +168,8 @@ namespace beestje_eindopdracht.Controllers
         {
             if (ModelState.IsValid)
             {
-                boekingViewModel.beestjes = DataRepository.Instance.beestjes.ToList();
-                boekingViewModel.dateTime = DataRepository.Instance.currDate;
-                boekingRepository.Create(boekingViewModel, beestRepository);
-                return RedirectToAction("Index");
+                DataRepository.Instance.boekingViewModel = boekingViewModel;
+                return RedirectToAction("BoekingOverzicht");
             }
 
             return View();

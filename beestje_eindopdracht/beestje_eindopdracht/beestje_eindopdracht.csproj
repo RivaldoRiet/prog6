@@ -325,6 +325,7 @@
     <Content Include="Views\Beestjes\Edit.cshtml" />
     <Content Include="Views\Beestjes\Index.cshtml" />
     <Content Include="Views\Boeking\AccessoiresSelect.cshtml" />
+    <Content Include="Views\Boeking\BoekingOverzicht.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
