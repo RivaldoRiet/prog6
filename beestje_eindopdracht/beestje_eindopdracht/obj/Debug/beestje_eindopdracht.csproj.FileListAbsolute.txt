@@ -90,3 +90,4 @@ C:\Users\Lucas\Documents\finalprog6rivaldolucas\prog6\beestje_eindopdracht\beest
 C:\Users\Lucas\Documents\finalprog6rivaldolucas\prog6\beestje_eindopdracht\beestje_eindopdracht\obj\Debug\beestje_eindopdracht.csproj.CopyComplete
 C:\Users\Lucas\Documents\finalprog6rivaldolucas\prog6\beestje_eindopdracht\beestje_eindopdracht\obj\Debug\beestje_eindopdracht.dll
 C:\Users\Lucas\Documents\finalprog6rivaldolucas\prog6\beestje_eindopdracht\beestje_eindopdracht\obj\Debug\beestje_eindopdracht.pdb
+

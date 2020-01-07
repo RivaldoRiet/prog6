@@ -1,46 +1,34 @@
-﻿@model beestje_eindopdracht.ViewModels.BoekingViewModel
+﻿@model IEnumerable<beestje_eindopdracht.Models.Accessoires>
 
 @{
-    ViewBag.Title = "BeestjeSelect";
+    ViewBag.Title = "AccessoiresSelect";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@if (Model != null && Model.AvailableBeestjes.Count() > 0)
-{
-    <div class="widget">
-        <fieldset>
-            <legend>Selecteer beestjes: </legend>
-            <div id="checkboxes">
-
-                @foreach (var beestje in Model.AvailableBeestjes)
+<div class="widget">
+    <fieldset>
+        <legend>Selecteer accessoires: </legend>
+        <div id="checkboxes">
+            @if (Model != null)
+            {
+                foreach (var accessoires in Model.ToList())
                 {
-                <img src="@beestje.Afbeelding" />
-                <label for="checkbox-nested-@beestje.Id">
-                    @beestje.Naam
-                    <input type="checkbox" name="checkbox-nested-@beestje.Id" id="checkbox-nested-@beestje.Id" class="@beestje.Id">
-                </label>
+                    <img src="@accessoires.Afbeelding" style="width:100px;height:100px;" />
+                    <label for="checkbox-nested-@accessoires.Id">
+                        @accessoires.Naam prijs - €@accessoires.Prijs.ToString().Split(',')[0]
+                        <input type="checkbox" name="checkbox-nested-@accessoires.Id" id="checkbox-nested-@accessoires.Id" class="@accessoires.Id">
+                    </label>
                 }
+            }
+        </div>
+    </fieldset>
+</div>
 
-            </div>
-        </fieldset>
-    </div>
-    }
-    else
-    {
-        <h4>geen dieren over om te boeken klik hier om terug te gaan</h4>
-        @Html.ActionLink("Terug naar index", "Index")
-    }
-
-
-@if (Model != null && Model.AvailableBeestjes.Count() > 0)
+@using (Html.BeginForm())
 {
-    <h3 style="color:red" id="errormess">Selecteer minimaal 1 beestje</h3>
-    using (Html.BeginForm())
-    {
-        <p>
-            <a type="button" href="/Boeking/AccessoiresSelect" onclick="return postBeestjes();" class="btn btn-primary"> Beestjes selecteren </a>
-        </p>
-    }
+    <p>
+        <a type="button" href="/Boeking/Create" onclick="return postAccessoires();" class="btn btn-primary"> Accessoires selecteren </a>
+    </p>
 }
 
 @section Scripts {
@@ -50,7 +38,7 @@
     <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
     <script>
 
-        postBeestjes = function () {
+        postAccessoires = function () {
             var selected = [];
 
             if ($('#checkboxes input:checked').length == 0) {
@@ -60,11 +48,11 @@
                 $('#checkboxes input:checked').each(function () {
                     selected.push($(this).attr('id').valueOf().split("checkbox-nested-")[1]);
                 });
-                $.post("/Boeking/BeestjeSelect", { "JSONString": selected });
+                $.post("/Boeking/AccessoiresSelect", { "JSONString": selected });
+                
             }
             return true;
         }
-
 
         $(function () {
             $("#errormess").hide();
@@ -73,7 +61,7 @@
                 changeMonth: true,
                 changeYear: true,
                 //yearRange : "-10:+10"
-                minDate: new Date().toJSON().slice(0,10).replace(/-/g,'/'),
+                minDate: new Date(2019, 0, 1),
                 maxDate: new Date(2021, 0, 1),
                 showOn: "both",
                 buttonText: "<i class='fa fa-calendar'></i>"
@@ -99,3 +87,4 @@
         });
     </script>
 }
+

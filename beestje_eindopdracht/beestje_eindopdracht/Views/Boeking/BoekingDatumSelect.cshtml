@@ -10,7 +10,7 @@
 <p>Date: <input type="text" class="datepicker" id="datepicker"></p>
 
     <p>
-        <a type="button" href="/Boeking/BeestjeSelect" onclick="postDate()" class="btn btn-primary"> Datum selecteren </a>
+        <a type="button" href="/Boeking/BeestjeSelect" onclick="return postDate();" class="btn btn-primary"> Datum selecteren </a>
     </p>
 
     @section Scripts {
@@ -20,12 +20,15 @@
         <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
         <script>
 
-            function postDate() {
+            postDate = function () {
                 var date = $(datepicker).val();
-                if (Date.parse(date)) {
+                var today = new Date((new Date()).toString().substring(0,15));
+                if (Date.parse(date) && Date.parse(date) >= Date.parse(today)) {
                     $.post("/Boeking/BoekingDatumSelect", { "JSONString": date });
+                    return true;
                 } else {
                     $("#errormess").show();
+                    return false;
                 }
                 
             }

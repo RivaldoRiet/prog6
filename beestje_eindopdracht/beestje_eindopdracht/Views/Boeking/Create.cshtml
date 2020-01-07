@@ -30,6 +30,19 @@
 <br />
 <br />
 
+<h4>Accessoires</h4>
+@if (Model.SelectedAccessoires != null) {
+    foreach (var accessoires in Model.SelectedAccessoires)
+    {
+    <div class="col-lg-4 p-2">
+        <h5>@accessoires.Naam</h5>
+    </div>
+
+    }
+}
+<br />
+<br />
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -74,7 +87,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Naar overzicht" class="btn btn-default" />
             </div>
         </div>
     </div>

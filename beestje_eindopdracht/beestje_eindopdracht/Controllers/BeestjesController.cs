@@ -30,6 +30,7 @@ namespace beestje_eindopdracht.Controllers
             return View(beestjes.ToList());
         }
 
+ 
         [HttpGet]
         public ActionResult Create()
         {
@@ -139,5 +140,6 @@ namespace beestje_eindopdracht.Controllers
             var tuple = new Tuple<Beestjes, IEnumerable<Boeking>>(beestjes, boekingen);
             return View(tuple);
         }
+
     }
 }

@@ -16,9 +16,21 @@ namespace beestje_eindopdracht.Repositories
             _context = context;
         }
 
-        public void Create(BoekingViewModel boekingViewModel)
+        public void Create(BoekingViewModel boekingViewModel, IBeestRepository beestRepository)
         {
-            _context.Boeking.Add(boekingViewModel.ToNewInstanceModel());
+            Boeking boeking = new Boeking();
+            boeking.Id = boekingViewModel.id;
+            boeking.contact_naam = boekingViewModel.contact_naam;
+            boeking.contact_email = boekingViewModel.contact_email;
+            boeking.contact_adres = boekingViewModel.contact_adres;
+            boeking.contact_telefoonnummer = boekingViewModel.contact_telefoonnummer;
+            boeking.datum = boekingViewModel.dateTime;
+            foreach (var beest in DataRepository.Instance.beestjes)
+            {
+                Beestjes b = beestRepository.getBeestById(beest.Id);
+                boeking.Beestjes.Add(b);
+            }
+            _context.Boeking.Add(boeking);
             _context.SaveChanges();
         }
 
@@ -63,7 +75,7 @@ namespace beestje_eindopdracht.Repositories
                         result.Add(boeking);
                     }
                 }
-
+                
             }
             return result;
         }

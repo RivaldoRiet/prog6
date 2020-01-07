@@ -16,7 +16,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.datum.ToShortDateString())
+            @Html.DisplayFor(model => model.datum)
         </dd>
 
         <dt>
@@ -53,6 +53,11 @@
 
     </dl>
 </div>
+<h1>Beestjes:</h1>
+    @foreach (var beestje in Model.Beestjes)
+    {
+        <h4>@beestje.Naam</h4>
+    }
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")

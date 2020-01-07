@@ -65,6 +65,7 @@ namespace beestje_eindopdracht.App_Start
             kernel.Bind<beestje_databaseEntities>().To<beestje_databaseEntities>().InRequestScope();
             kernel.Bind<IBeestRepository>().To<BeestRepository>();
             kernel.Bind<IBoekingRepository>().To<BoekingRepository>();
+            kernel.Bind<IAccessoiresRepository>().To<AccessoiresRepository>();
         }        
     }
 }

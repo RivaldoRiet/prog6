@@ -179,8 +179,10 @@
       <DependentUpon>beest_db.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AccessoiresRepository.cs" />
     <Compile Include="Repositories\BeestRepository.cs" />
     <Compile Include="Repositories\BoekingRepository.cs" />
+    <Compile Include="Repositories\IAccessoiresRepository.cs" />
     <Compile Include="Repositories\IBeestRepository.cs" />
     <Compile Include="Repositories\IBoekingRepository.cs" />
     <Compile Include="Singleton\DataRepository.cs" />
@@ -194,6 +196,9 @@
     <Content Include="Content\bootstrap2.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\Images\Accessoires\bracelet.png" />
+    <Content Include="Content\Images\Accessoires\earrings.png" />
+    <Content Include="Content\Images\Accessoires\ketting.png" />
     <Content Include="Content\Images\Beestjes\beestje1.png" />
     <Content Include="Content\Images\Beestjes\beestje10.png" />
     <Content Include="Content\Images\Beestjes\beestje11.png" />
@@ -320,10 +325,11 @@
     <Content Include="Views\Beestjes\Details.cshtml" />
     <Content Include="Views\Beestjes\Edit.cshtml" />
     <Content Include="Views\Beestjes\Index.cshtml" />
+    <Content Include="Views\Boeking\AccessoiresSelect.cshtml" />
+    <Content Include="Views\Boeking\BoekingOverzicht.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\Accessoires\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
