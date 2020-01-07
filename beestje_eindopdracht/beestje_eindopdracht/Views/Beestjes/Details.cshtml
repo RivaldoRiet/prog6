@@ -20,6 +20,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Item1.Afbeelding)
+        </dt>
+
+        <dd>
+            <img src="@Model.Item1.Afbeelding">
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Item1.Naam)
         </dt>
 
@@ -33,14 +41,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.Item1.Prijs)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Item1.Afbeelding)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Item1.Afbeelding)
         </dd>
 
         <dt>

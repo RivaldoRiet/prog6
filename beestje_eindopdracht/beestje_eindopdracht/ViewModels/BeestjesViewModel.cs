@@ -22,13 +22,12 @@ namespace beestje_eindopdracht.ViewModels
         public string Price { get; set; }
 
         [Required(ErrorMessage = "Beest type is required")]
-        public BeestType BeestType { get; set; }
+        public string BeestType { get; set; }
 
         [Required(ErrorMessage = "Beest image is required")]
         public string SelectedImageUrl { get; set; }
 
         // Only used for UI
-        public int AmountOfBedTaken { get; set; }
         public string[] BeestTypes { get; set; }
         public string[] BeestImages { get; set; }
         public ICollection<Boeking> beest_boeking { get; set; }
@@ -44,11 +43,8 @@ namespace beestje_eindopdracht.ViewModels
             Id = beest.Id;
             Name = beest.Naam;
             Price = beest.Prijs;
-            BeestType = beest.BeestType;
+            BeestType = beest.BeestType.Type;
             SelectedImageUrl = beest.Afbeelding;
-            beest_boeking = beest.Boeking;
-            beest_accessoires = beest.Accessoires;
-            beest_type_id = beest.BeestType_id;
         }
 
         /// <summary>
@@ -68,29 +64,7 @@ namespace beestje_eindopdracht.ViewModels
                 Naam = this.Name,
                 Prijs = this.Price,
                 Afbeelding = this.SelectedImageUrl,
-                BeestType = this.BeestType,
-                Boeking = this.beest_boeking,
-                Accessoires = this.beest_accessoires,
-                BeestType_id = this.beest_type_id
-            };
-        }
-        public Beestjes ToNewInstanceModel()
-        {
-            if (Name == null || SelectedImageUrl == null)
-            {
-                return null;
-            }
-
-            return new Beestjes()
-            {
-                Id = this.Id,
-                Naam = this.Name,
-                Prijs = this.Price,
-                Afbeelding = this.SelectedImageUrl,
-                BeestType = this.BeestType,
-                Boeking = this.beest_boeking,
-                Accessoires = this.beest_accessoires,
-                BeestType_id = this.beest_type_id
+                BeestType = beestType,
             };
         }
     }

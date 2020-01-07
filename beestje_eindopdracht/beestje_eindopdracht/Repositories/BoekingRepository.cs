@@ -45,22 +45,25 @@ namespace beestje_eindopdracht.Repositories
             return _context.Boeking.ToList();
         }
 
-        public IEnumerable<Boeking> GetBoekingenByBeestId(int? beestID)
+  public IEnumerable<Boeking> GetBoekingenByBeestId(int? beestID)
         {
             if (beestID == null)
             {
                 return null;
             }
             //alle boekingen ophalen waarbij het beestje voorkomt
-            var boekingen = _context.Boeking.Where(t => t.Beestjes.Count > 0);
+            var boekingen = _context.Boeking.ToList();
             var result = new List<Boeking>();
 
             foreach (var boeking in boekingen)
             {
-                if (boeking.Id == beestID)
+                foreach (var beestje in boeking.Beestjes)
                 {
-                    result.Add(boeking);
+                    if (beestje.Id == beestID) {
+                        result.Add(boeking);
+                    }
                 }
+
             }
             return result;
         }

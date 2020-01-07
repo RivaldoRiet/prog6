@@ -30,21 +30,6 @@ namespace beestje_eindopdracht.Controllers
             return View(beestjes.ToList());
         }
 
-        // GET: Beestjes/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Beestjes beestjes = db.Beestjes.Find(id);
-            if (beestjes == null)
-            {
-                return HttpNotFound();
-            }
-            return View(beestjes);
-        }
-
         [HttpGet]
         public ActionResult Create()
         {
@@ -65,37 +50,41 @@ namespace beestje_eindopdracht.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Beestjes/Edit/5
+        [HttpGet]
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (id == null || id <= 0)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index", "Beestjes");
             }
-            Beestjes beestjes = db.Beestjes.Find(id);
-            if (beestjes == null)
+
+            var beestViewModel = _beestRepository.getBeestById((int)id);
+            if (beestViewModel != null)
             {
-                return HttpNotFound();
+              
+                BeestjesViewModel beestjesViewModel = new BeestjesViewModel(beestViewModel);
+
+                beestjesViewModel.BeestTypes = _beestRepository.GetBeestTypes().Select(r => r.Type).ToArray();
+                beestjesViewModel.BeestImages = _beestRepository.GetBeestImages();
+
+                return View(beestjesViewModel);
             }
-            ViewBag.BeestType_id = new SelectList(db.BeestType, "id", "Type", beestjes.BeestType_id);
-            return View(beestjes);
+
+            return RedirectToAction("Index", "Beest");
         }
 
-        // POST: Beestjes/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,BeestType_id,Naam,Prijs,Afbeelding")] Beestjes beestjes)
+        public ActionResult Edit(BeestjesViewModel beestjesViewModel)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                db.Entry(beestjes).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                beestjesViewModel.BeestImages = _beestRepository.GetBeestImages();
+                return View(beestjesViewModel);
             }
-            ViewBag.BeestType_id = new SelectList(db.BeestType, "id", "Type", beestjes.BeestType_id);
-            return View(beestjes);
+
+            _beestRepository.Edit(beestjesViewModel);
+
+            return RedirectToAction("Index");
         }
 
         // GET: Beestjes/Delete/5
@@ -131,6 +120,24 @@ namespace beestje_eindopdracht.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        // GET: Beestjes/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Beestjes beestjes = db.Beestjes.Find(id);
+            if (beestjes == null)
+            {
+                return HttpNotFound();
+            }
+            var boekingen = _boekingRepository.GetBoekingenByBeestId(id);
+
+            var tuple = new Tuple<Beestjes, IEnumerable<Boeking>>(beestjes, boekingen);
+            return View(tuple);
         }
     }
 }

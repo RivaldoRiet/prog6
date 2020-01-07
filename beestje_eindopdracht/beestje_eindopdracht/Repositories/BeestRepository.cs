@@ -32,6 +32,22 @@ namespace beestje_eindopdracht.Repositories
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// CRUD
+        /// </summary>
+        /// <param name="beestjesViewModel"></param>
+        public void Edit(BeestjesViewModel beestjesViewModel)
+        {
+            var beestType = _beestTypes.Where(r => r.Type.Equals(beestjesViewModel.BeestType)).FirstOrDefault();
+
+            var beestje = this.getBeestById(beestjesViewModel.Id);
+            beestje.Naam = beestjesViewModel.Name;
+            beestje.Afbeelding = beestjesViewModel.SelectedImageUrl;
+            beestje.Prijs = beestjesViewModel.Price;
+            beestje.BeestType = beestType;
+            _context.SaveChanges();
+        }
+
         public IEnumerable<Beestjes> GetAvailableBeestjes()
         {
             var beestjeIsInDb = _context.Beestjes.OrderBy(t => t.Naam);
@@ -137,11 +153,11 @@ namespace beestje_eindopdracht.Repositories
 
         private string[] InitializeBeestImages()
         {
-            string[] result = new string[17];
+            string[] result = new string[16];
 
-            for (int x = 0; x < result.Length; x++)
+            for (int x = 1; x <= result.Length; x++)
             {
-                result[x] = "/Content/Images/Beestjes/beestje" + x + ".png";
+                result[x - 1] = "/Content/Images/Beestjes/beestje" + x + ".png";
             }
 
             return result;

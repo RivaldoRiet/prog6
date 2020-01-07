@@ -191,7 +191,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap2.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\Images\Beestjes\beestje1.png" />
@@ -202,7 +202,6 @@
     <Content Include="Content\Images\Beestjes\beestje14.png" />
     <Content Include="Content\Images\Beestjes\beestje15.png" />
     <Content Include="Content\Images\Beestjes\beestje16.png" />
-    <Content Include="Content\Images\Beestjes\beestje17.png" />
     <Content Include="Content\Images\Beestjes\beestje2.png" />
     <Content Include="Content\Images\Beestjes\beestje3.png" />
     <Content Include="Content\Images\Beestjes\beestje4.png" />
@@ -212,6 +211,7 @@
     <Content Include="Content\Images\Beestjes\beestje8.png" />
     <Content Include="Content\Images\Beestjes\beestje9.png" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\bootstrap.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -289,6 +289,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Select.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

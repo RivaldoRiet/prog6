@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="beestje_databaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Accessoires">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Naam" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Prijs" Type="money" Nullable="false" />
+    <Property Name="Afbeelding" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Beestje_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Beestjes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BeestType_id" Type="int" Nullable="false" />
+    <Property Name="Naam" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Prijs" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Afbeelding" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Beestjes_Boeking">
+    <Key>
+      <PropertyRef Name="Boeking_ID" />
+      <PropertyRef Name="Beest_ID" />
+    </Key>
+    <Property Name="Boeking_ID" Type="int" Nullable="false" />
+    <Property Name="Beest_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BeestType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Boeking">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="datum" Type="date" Nullable="false" />
+    <Property Name="contact_naam" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="contact_adres" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="contact_email" Type="nvarchar(max)" />
+    <Property Name="contact_telefoonnummer" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="Beestjes_ID">
+    <End Role="BeestType" Type="Self.BeestType" Multiplicity="1" />
+    <End Role="Beestjes" Type="Self.Beestjes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BeestType">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Beestjes">
+        <PropertyRef Name="BeestType_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Accessoires_Beestjes">
+    <End Role="Beestjes" Type="Self.Beestjes" Multiplicity="1" />
+    <End Role="Accessoires" Type="Self.Accessoires" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beestjes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Accessoires">
+        <PropertyRef Name="Beestje_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Beestjes_Boeking_Beestjes">
+    <End Role="Beestjes" Type="Self.Beestjes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Beestjes_Boeking" Type="Self.Beestjes_Boeking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beestjes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Beestjes_Boeking">
+        <PropertyRef Name="Beest_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Beestjes_Boeking_Boeking">
+    <End Role="Boeking" Type="Self.Boeking" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Beestjes_Boeking" Type="Self.Beestjes_Boeking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Boeking">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Beestjes_Boeking">
+        <PropertyRef Name="Boeking_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="beestje_databaseModelStoreContainer">
+    <EntitySet Name="Accessoires" EntityType="Self.Accessoires" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Beestjes" EntityType="Self.Beestjes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Beestjes_Boeking" EntityType="Self.Beestjes_Boeking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BeestType" EntityType="Self.BeestType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Boeking" EntityType="Self.Boeking" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="Beestjes_ID" Association="Self.Beestjes_ID">
+      <End Role="BeestType" EntitySet="BeestType" />
+      <End Role="Beestjes" EntitySet="Beestjes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Accessoires_Beestjes" Association="Self.FK_Accessoires_Beestjes">
+      <End Role="Beestjes" EntitySet="Beestjes" />
+      <End Role="Accessoires" EntitySet="Accessoires" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Beestjes_Boeking_Beestjes" Association="Self.FK_Beestjes_Boeking_Beestjes">
+      <End Role="Beestjes" EntitySet="Beestjes" />
+      <End Role="Beestjes_Boeking" EntitySet="Beestjes_Boeking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Beestjes_Boeking_Boeking" Association="Self.FK_Beestjes_Boeking_Boeking">
+      <End Role="Boeking" EntitySet="Boeking" />
+      <End Role="Beestjes_Boeking" EntitySet="Beestjes_Boeking" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -21,22 +21,20 @@
                         <input name="Name" type="text" value="@Model.Name" class="form-control">
                         @Html.ValidationMessageFor(r => r.Name, "", new { @class = "text-danger" })
                     </div>
+                </div>
 
-                    <div class="col-lg-6 p-2">
-                        <h5 class="font-bold">Aantal bedden <span class="badge blue float-right rounded requirements-text">Keuzes: 2, 3 of 5</span></h5>
-                        <input name="AmountOfBed" type="text" class="form-control" value="@Model.Price">
-                        @Html.ValidationMessageFor(r => r.Price, "", new { @class = "text-danger" })
-                    </div>
-
-
+                <div class="col-lg-6 p-2">
+                    <h5 class="font-bold">Prijs <span class="badge blue requirements-text float-right rounded">Min: 100 Max: 500</span></h5>
+                    <input name="Price" type="text" class="form-control" value="@Model.Price">
+                    @Html.ValidationMessageFor(t => t.Price, "", new { @class = "text-danger" })
                 </div>
 
                 <h5 class="font-bold">Kamer Type</h5>
                 @Html.ValidationMessageFor(r => r.BeestType, "", new { @class = "text-danger" })
                 <div class="list-group">
-                    <input name="RoomType" id="selected-aoroom" type="hidden" value="@Model.BeestType" />
+                    <input name="BeestType" id="selected-aoroom" type="hidden" value="@Model.BeestType" />
 
-                    @foreach (var roomType in Model.RoomTypes)
+                    @foreach (var roomType in Model.BeestTypes)
                     {
                         if (Model.BeestType != null)
                         {
