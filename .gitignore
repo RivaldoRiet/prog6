@@ -336,3 +336,5 @@ _Pvt_Extensions
 # JetBrains Rider
 .idea/
 *.sln.iml
+*.ide-wal
+beestje_eindopdracht/.vs/beestje_eindopdracht/v16/.suo
