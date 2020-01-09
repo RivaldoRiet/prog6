@@ -186,6 +186,7 @@
     <Compile Include="Repositories\IBeestRepository.cs" />
     <Compile Include="Repositories\IBoekingRepository.cs" />
     <Compile Include="Singleton\DataRepository.cs" />
+    <Compile Include="ViewModels\AccessoiresViewModel.cs" />
     <Compile Include="ViewModels\BeestjesViewModel.cs" />
     <Compile Include="ViewModels\BeestViewModel.cs" />
     <Compile Include="ViewModels\BoekingViewModel.cs" />
