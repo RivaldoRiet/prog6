@@ -1,0 +1,101 @@
+﻿@model beestje_eindopdracht.ViewModels.BoekingViewModel
+
+@{
+    ViewBag.Title = "BeestjeSelect";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model != null && Model.AvailableBeestjes.Count() > 0)
+{
+    <div class="widget">
+        <fieldset>
+            <legend>Selecteer beestjes: </legend>
+            <div id="checkboxes">
+
+                @foreach (var beestje in Model.AvailableBeestjes)
+                {
+                <img src="@beestje.Afbeelding" />
+                <label for="checkbox-nested-@beestje.Id">
+                    @beestje.Naam
+                    <input type="checkbox" name="checkbox-nested-@beestje.Id" id="checkbox-nested-@beestje.Id" class="@beestje.Id">
+                </label>
+                }
+
+            </div>
+        </fieldset>
+    </div>
+    }
+    else
+    {
+        <h4>geen dieren over om te boeken klik hier om terug te gaan</h4>
+        @Html.ActionLink("Terug naar index", "Index")
+    }
+
+
+@if (Model != null && Model.AvailableBeestjes.Count() > 0)
+{
+    <h3 style="color:red" id="errormess">Selecteer minimaal 1 beestje</h3>
+    using (Html.BeginForm())
+    {
+        <p>
+            <a type="button" href="/Boeking/AccessoiresSelect" onclick="return postBeestjes();" class="btn btn-primary"> Beestjes selecteren </a>
+        </p>
+    }
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script>
+
+        postBeestjes = function () {
+            var selected = [];
+
+            if ($('#checkboxes input:checked').length == 0) {
+                $("#errormess").show();
+                return false;
+            } else {
+                $('#checkboxes input:checked').each(function () {
+                    selected.push($(this).attr('id').valueOf().split("checkbox-nested-")[1]);
+                });
+                $.post("/Boeking/BeestjeSelect", { "JSONString": selected });
+            }
+            return true;
+        }
+
+
+        $(function () {
+            $("#errormess").hide();
+            $(".datepicker").datepicker({
+                dateFormat: "yy/mm/dd",
+                changeMonth: true,
+                changeYear: true,
+                //yearRange : "-10:+10"
+                minDate: new Date().toJSON().slice(0,10).replace(/-/g,'/'),
+                maxDate: new Date(2021, 0, 1),
+                showOn: "both",
+                buttonText: "<i class='fa fa-calendar'></i>"
+            });
+        });
+
+        function wait(ms) {
+            var start = new Date().getTime();
+            var end = start;
+            while (end < start + ms) {
+                end = new Date().getTime();
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("input").checkboxradio();
+        });
+    </script>
+}

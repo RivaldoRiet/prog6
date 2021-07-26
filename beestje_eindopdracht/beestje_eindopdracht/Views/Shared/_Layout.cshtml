@@ -4,39 +4,79 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
+
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @*@Scripts.Render("~/bundles/modernizr")*@
+    <style>
+        .top-nav-collapse {
+            background-color: #82b1ff !important;
+        }
+
+        .navbar:not(.top-nav-collapse) {
+            background: transparent !important;
+        }
+
+        @@media (max-width: 768px) {
+            .navbar:not(.top-nav-collapse) {
+                background: #82b1ff !important;
+            }
+        }
+
+        .intro-1 {
+            height: 1050px;
+        }
+
+        @@media (min-width: 770px) and (max-width: 1025px) {
+            .intro-1 {
+                height: 750px;
+            }
+        }
+
+        @@media (max-width: 740px) {
+            .intro {
+                height: 600px;
+            }
+        }
+    </style>
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+<body style="padding: 0px !important">
+
+    <header>
+
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar top-nav-collapse top-nav-always">
+            <div class="container">
+                @Html.ActionLink("Beestje op je feestje", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Home")">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Boeking")">Boekingen</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Beestjes")">Beestjes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Accessoires")">Accessoires</a>
+
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
+        </nav>
+
+    </header>
+    <div class="container body-content" style="margin-top: 100px;">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
+
 </html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b5e9962220e14ddbbba6a752303f9388" Name="Diagram1" ZoomLevel="109">
+        <EntityTypeShape EntityType="beestje_databaseModel.Accessoires" Width="1.5" PointX="5.25" PointY="1.125" />
+        <EntityTypeShape EntityType="beestje_databaseModel.Beestjes" Width="1.5" PointX="3" PointY="2.5" />
+        <EntityTypeShape EntityType="beestje_databaseModel.BeestType" Width="1.5" PointX="0.75" PointY="2.875" />
+        <EntityTypeShape EntityType="beestje_databaseModel.Boeking" Width="1.5" PointX="5.25" PointY="4" />
+        <AssociationConnector Association="beestje_databaseModel.FK_Accessoires_Beestjes" />
+        <AssociationConnector Association="beestje_databaseModel.Beestjes_ID" />
+        <AssociationConnector Association="beestje_databaseModel.Beestjes_Boeking" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,64 @@
+﻿html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.hp-header {
+    color: rgba(0,0,0,0.8);
+}
+
+.slide1-image {
+    background-image: url(/Content/Images/Beestjes/field.png);
+}
+
+.slide2-image {
+    background-image: url(/Content/Images/Beestjes/field.png);
+}
+
+.hp-tamagotchi-title {
+    background-color: rgba(0,0,0,0.7);
+}
+
+.hp-tamagotchi-image {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.crudpanel {
+    margin: 60px 0;
+    padding: 35px 20px;
+    background-color: white;
+}
+
+.image-selector {
+    height: 650px;
+    overflow-y: auto;
+}
+
+.image-selector-item {
+    padding: 5px;
+}
+
+.form-p {
+    font-size: 24px;
+}
+
+.requirements-text {
+    font-size: 12px;
+}
+
+.tamagotchi-background {
+    background-image: url(/Content/Images/Beestjes/field.png);
+}
+
+.fixed-background {
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}

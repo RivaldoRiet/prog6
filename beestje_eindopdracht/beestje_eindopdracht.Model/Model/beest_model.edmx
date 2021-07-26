@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="beestje_databaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Accessoires">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Naam" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Prijs" Type="money" Nullable="false" />
+          <Property Name="Afbeelding" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Beestje_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Beestjes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Boeking_id" Type="int" />
+          <Property Name="BeestType_id" Type="int" Nullable="false" />
+          <Property Name="Naam" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Prijs" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Afbeelding" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BeestType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Boeking">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="datum" Type="date" Nullable="false" />
+          <Property Name="contact_naam" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="contact_adres" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="contact_email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="contact_telefoonnummer" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="Beestjes_ID">
+          <End Role="BeestType" Type="Self.BeestType" Multiplicity="1" />
+          <End Role="Beestjes" Type="Self.Beestjes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BeestType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Beestjes">
+              <PropertyRef Name="BeestType_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accessoires_Beestjes">
+          <End Role="Beestjes" Type="Self.Beestjes" Multiplicity="1" />
+          <End Role="Accessoires" Type="Self.Accessoires" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Beestjes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Accessoires">
+              <PropertyRef Name="Beestje_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Beestjes_Boeking">
+          <End Role="Boeking" Type="Self.Boeking" Multiplicity="0..1" />
+          <End Role="Beestjes" Type="Self.Beestjes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Boeking">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Beestjes">
+              <PropertyRef Name="Boeking_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="beestje_databaseModelStoreContainer">
+          <EntitySet Name="Accessoires" EntityType="Self.Accessoires" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Beestjes" EntityType="Self.Beestjes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BeestType" EntityType="Self.BeestType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Boeking" EntityType="Self.Boeking" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Beestjes_ID" Association="Self.Beestjes_ID">
+            <End Role="BeestType" EntitySet="BeestType" />
+            <End Role="Beestjes" EntitySet="Beestjes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accessoires_Beestjes" Association="Self.FK_Accessoires_Beestjes">
+            <End Role="Beestjes" EntitySet="Beestjes" />
+            <End Role="Accessoires" EntitySet="Accessoires" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Beestjes_Boeking" Association="Self.FK_Beestjes_Boeking">
+            <End Role="Boeking" EntitySet="Boeking" />
+            <End Role="Beestjes" EntitySet="Beestjes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="beestje_databaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Accessoires">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Naam" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prijs" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Afbeelding" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Beestje_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Beestjes" Relationship="Self.FK_Accessoires_Beestjes" FromRole="Accessoires" ToRole="Beestjes" />
+        </EntityType>
+        <EntityType Name="Beestjes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Boeking_id" Type="Int32" />
+          <Property Name="BeestType_id" Type="Int32" Nullable="false" />
+          <Property Name="Naam" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prijs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Afbeelding" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Accessoires" Relationship="Self.FK_Accessoires_Beestjes" FromRole="Beestjes" ToRole="Accessoires" />
+          <NavigationProperty Name="BeestType" Relationship="Self.Beestjes_ID" FromRole="Beestjes" ToRole="BeestType" />
+          <NavigationProperty Name="Boeking" Relationship="Self.FK_Beestjes_Boeking" FromRole="Beestjes" ToRole="Boeking" />
+        </EntityType>
+        <EntityType Name="BeestType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Beestjes" Relationship="Self.Beestjes_ID" FromRole="BeestType" ToRole="Beestjes" />
+        </EntityType>
+        <EntityType Name="Boeking">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="datum" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="contact_naam" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="contact_adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="contact_email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="contact_telefoonnummer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Beestjes" Relationship="Self.FK_Beestjes_Boeking" FromRole="Boeking" ToRole="Beestjes" />
+        </EntityType>
+        <Association Name="FK_Accessoires_Beestjes">
+          <End Role="Beestjes" Type="Self.Beestjes" Multiplicity="1" />
+          <End Role="Accessoires" Type="Self.Accessoires" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Beestjes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Accessoires">
+              <PropertyRef Name="Beestje_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Beestjes_ID">
+          <End Role="BeestType" Type="Self.BeestType" Multiplicity="1" />
+          <End Role="Beestjes" Type="Self.Beestjes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BeestType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Beestjes">
+              <PropertyRef Name="BeestType_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Beestjes_Boeking">
+          <End Role="Boeking" Type="Self.Boeking" Multiplicity="0..1" />
+          <End Role="Beestjes" Type="Self.Beestjes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Boeking">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Beestjes">
+              <PropertyRef Name="Boeking_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="beestje_databaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accessoires" EntityType="Self.Accessoires" />
+          <EntitySet Name="Beestjes" EntityType="Self.Beestjes" />
+          <EntitySet Name="BeestType" EntityType="Self.BeestType" />
+          <EntitySet Name="Boeking" EntityType="Self.Boeking" />
+          <AssociationSet Name="FK_Accessoires_Beestjes" Association="Self.FK_Accessoires_Beestjes">
+            <End Role="Beestjes" EntitySet="Beestjes" />
+            <End Role="Accessoires" EntitySet="Accessoires" />
+          </AssociationSet>
+          <AssociationSet Name="Beestjes_ID" Association="Self.Beestjes_ID">
+            <End Role="BeestType" EntitySet="BeestType" />
+            <End Role="Beestjes" EntitySet="Beestjes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Beestjes_Boeking" Association="Self.FK_Beestjes_Boeking">
+            <End Role="Boeking" EntitySet="Boeking" />
+            <End Role="Beestjes" EntitySet="Beestjes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="beestje_databaseModelStoreContainer" CdmEntityContainer="beestje_databaseEntities">
+          <EntitySetMapping Name="Accessoires">
+            <EntityTypeMapping TypeName="beestje_databaseModel.Accessoires">
+              <MappingFragment StoreEntitySet="Accessoires">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+                <ScalarProperty Name="Prijs" ColumnName="Prijs" />
+                <ScalarProperty Name="Afbeelding" ColumnName="Afbeelding" />
+                <ScalarProperty Name="Beestje_id" ColumnName="Beestje_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Beestjes">
+            <EntityTypeMapping TypeName="beestje_databaseModel.Beestjes">
+              <MappingFragment StoreEntitySet="Beestjes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Boeking_id" ColumnName="Boeking_id" />
+                <ScalarProperty Name="BeestType_id" ColumnName="BeestType_id" />
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+                <ScalarProperty Name="Prijs" ColumnName="Prijs" />
+                <ScalarProperty Name="Afbeelding" ColumnName="Afbeelding" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BeestType">
+            <EntityTypeMapping TypeName="beestje_databaseModel.BeestType">
+              <MappingFragment StoreEntitySet="BeestType">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Boeking">
+            <EntityTypeMapping TypeName="beestje_databaseModel.Boeking">
+              <MappingFragment StoreEntitySet="Boeking">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="datum" ColumnName="datum" />
+                <ScalarProperty Name="contact_naam" ColumnName="contact_naam" />
+                <ScalarProperty Name="contact_adres" ColumnName="contact_adres" />
+                <ScalarProperty Name="contact_email" ColumnName="contact_email" />
+                <ScalarProperty Name="contact_telefoonnummer" ColumnName="contact_telefoonnummer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
